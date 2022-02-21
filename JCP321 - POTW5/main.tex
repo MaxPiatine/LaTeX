@@ -1,0 +1,61 @@
+\documentclass[11pt]{article} 
+%\usepackage{amsbsy} % for \boldsymbol and \pmb 
+%\usepackage{graphicx} % To include pdf files!
+\usepackage{amsmath}
+\usepackage{amsbsy}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref} % For links
+\usepackage{fullpage}
+\pagestyle{empty}
+\usepackage{pgf,pgfplots,tikz}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tikz}
+\newcommand{\overrightharp}[1]{\hat{#1}}
+\DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\years}{years}
+\DeclareMathOperator{\cm}{cm}
+\newcommand{\vct}{\mathbf}
+\newcommand{\vctproj}[2][]{\proj_{{#1}}\vct{#2}}
+\newtheorem{theorem}{Theorem}
+\DeclareMathOperator{\m}{m}
+\DeclareMathOperator{\kg}{kg}
+\DeclareMathOperator{\N}{N}
+\DeclareMathOperator{\Or}{or}
+\DeclareMathOperator{\J}{J}
+\DeclareMathOperator{\s}{s}
+\DeclareMathOperator{\g}{g}
+\DeclareMathOperator{\W}{W}
+\DeclareMathOperator{\Heatoms}{He\hspace{1mm} atoms}
+\DeclareMathOperator{\MeV}{MeV}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator*{\E}{\mathbb{E}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\usepackage{graphicx}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\DeclareMathOperator{\diverge}{div\,}
+\DeclareMathOperator{\curl}{curl\,}
+\title{\textbf{JCP321 POTW5}
+\author{Maxim Piatine\\1005303100}}
+\date{}
+\DeclareMathOperator{\lineint}{\int \mathbf{v}\cdot d\mathbf{l}}
+\DeclareMathOperator{\surfint}{\int \mathbf{v}\cdot d\mathbf{a}}
+\begin{document}
+\maketitle
+\[\hat{T}=\frac{\hat{p}^2}{2m} \text{ , where $\hat{p}$ equals to } \hat{p}=i(\hat{a}_+-\hat{a}_-)\sqrt{\frac{\hbar m \omega}{2}}\]
+\[\E[T]=\int^\infty_{-\infty}\psi^*\hat{T}\psi dx = 
+\int^\infty_{-\infty}\psi^*\left(\frac{\hat{p}^2}{2m}\right)\psi dx=
+\frac{1}{2m}\int^\infty_{-\infty}\psi^*\left(i(\hat{a}_+-\hat{a}_-)\sqrt{\frac{\hbar m \omega}{2}}\right)^2\psi dx\]
+\[=\frac{1}{2m}\frac{-\hbar m \omega}{2}\int^\infty_{-\infty}\psi^*(\hat{a}_+-\hat{a}_-)^2\psi dx\]
+\[(\hat{a}_+-\hat{a}_-)^2=(\hat{a}_+\hat{a}_+) - (\hat{a}_+\hat{a}_-) - (\hat{a}_- \hat{a}_+) + (\hat{a}_-\hat{a}_-)\]
+From lecture and example 2.5 in the book, we can conclude that $\hat{a}_+\hat{a}_+ \psi$ and $\hat{a}_-\hat{a}_- \psi$ equate to zero due to orthogonality between $\psi_n$.
+\vspace{5mm}
+\\Properties used: 
+\[(1)\hat{a}_+\hat{a}_-\psi = n\]
+\[(2)\hat{a}_-\hat{a}_+\psi = n+1\]
+\[(3)\int^\infty_{-\infty}\psi^*\psi dx= 1\]
+\vspace{5mm}
+\[=\frac{-\hbar \omega}{4}\int^\infty_{-\infty}\psi^*(-\hat{a}_+\hat{a}_-\psi-\hat{a}_-\hat{a}_+\psi) dx=
+\frac{\hbar \omega}{4}\left( \int^\infty_{-\infty}(n)\psi^*\psi dx + \int^\infty_{-\infty}(n+1)\psi^*\psi dx\right)\]
+\[=\frac{\hbar \omega}{4}(n+n+1)=\frac{\hbar \omega}{4}(2)(n+\frac{1}{2})=\frac{\hbar \omega}{2}(n+\frac{1}{2})=\E[T]\]
+\end{document}

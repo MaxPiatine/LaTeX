@@ -1,0 +1,81 @@
+\documentclass[11pt]{article} 
+%\usepackage{amsbsy} % for \boldsymbol and \pmb 
+%\usepackage{graphicx} % To include pdf files!
+\usepackage{amsmath}
+\usepackage{amsbsy}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref} % For links
+\usepackage{fullpage}
+\pagestyle{empty}
+\usepackage{pgf,pgfplots,tikz}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tikz}
+\newcommand{\overrightharp}[1]{\hat{#1}}
+\DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\years}{years}
+\DeclareMathOperator{\cm}{cm}
+\newcommand{\vct}{\mathbf}
+\newcommand{\vctproj}[2][]{\proj_{{#1}}\vct{#2}}
+\newtheorem{theorem}{Theorem}
+\DeclareMathOperator{\m}{m}
+\DeclareMathOperator{\kg}{kg}
+\DeclareMathOperator{\N}{N}
+\DeclareMathOperator{\Or}{or}
+\DeclareMathOperator{\J}{J}
+\DeclareMathOperator{\s}{s}
+\DeclareMathOperator{\g}{g}
+\DeclareMathOperator{\W}{W}
+\DeclareMathOperator{\Heatoms}{He\hspace{1mm} atoms}
+\DeclareMathOperator{\MeV}{MeV}
+\DeclareMathOperator{\tr}{tr}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\usepackage{graphicx}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\DeclareMathOperator{\diverge}{div\,}
+\DeclareMathOperator{\curl}{curl\,}
+\title{\textbf{JCP321 POTW1}
+\author{Maxim Piatine\\1005303100}}
+\date{}
+\DeclareMathOperator{\lineint}{\int \mathbf{v}\cdot d\mathbf{l}}
+\DeclareMathOperator{\surfint}{\int \mathbf{v}\cdot d\mathbf{a}}
+\begin{document}
+\maketitle
+\begin{center}
+\begin{tikzpicture}
+\node[circle,fill=black,inner sep=2.5mm] (a) at (1,0);
+
+\draw[decoration={aspect=0.3, segment length=3mm, amplitude=3mm,coil},decorate] (1,5) -- (a); 
+
+\fill [pattern = north east lines] (-1,5) rectangle (3,5.2);
+\draw[thick] (-1,5) -- (3,5);
+
+% Weight Force
+\draw[-latex][blue](0,0) -- node[right]{$\vec{g}$}++(0,-1) ;
+
+% Tension Force
+\draw[-latex](0,0) -- node[right]{$\vec{k}$}++(0,1)
+
+\end{tikzpicture}
+\end{center}
+\vspace{5mm}
+Starting with potential function $V(q)$, assuming that the mass is centered ($q=0$):
+\[V_1(q_1)=\frac{1}{2}kq_1^2\] 
+\[V_2(q_1)=mgq_1\]
+\[V(q_1)=\frac{1}{2}kq_1^2+mgq_1\]
+Kinetic energy from the spring:
+\[T=\frac{1}{2}m\dot{q}_1^2\]
+Hamiltonian:
+\[H=T+V=\frac{1}{2}m\dot{q}_1^2+\frac{1}{2}kq_1^2+mgq_1\]
+However, we need to represent it in momentum and position ($H(p,q)$):
+\[T=\frac{p_1^2}{2m}=\frac{1}{2}m\dot{q}^2_1\]
+\[H=\frac{p_1^2}{2m}+\frac{1}{2}kq_1^2+mgq_1\]
+\newpage
+Partial derivatives of the Hamiltonian function:
+\[\frac{\partial H}{\partial p_1}=\frac{p_1}{m}=\dot{q}_1 \rightarrow p_1=m\dot{q}_1\]
+\[\frac{\partial H}{\partial q_1}=kq_1+mg=-\dot{p}_1\]
+Now to find the equation of motion:
+\[kq_1+mg=-(m\Ddot{q}_1)\]
+\[m\Ddot{q}_1+kq_1+mg=0\]
+\[\Ddot{q}_1+\frac{kq_1}{m}+g=0\]
+\end{document}

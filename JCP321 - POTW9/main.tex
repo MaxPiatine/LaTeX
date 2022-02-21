@@ -1,0 +1,159 @@
+\documentclass[11pt]{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage[linguistics]{forest}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amstext}
+\usepackage{amsmath,amssymb,amsthm, thmtools}
+\usepackage{tikz,lipsum,lmodern}
+\usepackage{array}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{tikz-cd}
+\usepackage{array}
+\usepackage{dirtytalk}
+\usepackage{qtree}
+\usepackage{framed}
+\usepackage[hyperfootnotes=false]{hyperref}
+\hypersetup{
+colorlinks=true,
+linkcolor={mypink}}
+
+\definecolor{mypink}{RGB}{255, 50, 147}
+\definecolor{pink}{RGB}{255, 0, 147}
+
+\setlength{\textheight}{9.3in}
+\setlength{\topmargin}{-0.7in}
+\setlength{\textwidth}{6.5in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\parskip}{6pt}
+\setlength{\parindent}{0pt}
+
+\def\mbb{\mathbb}
+\def\mb{\mathbf}
+\def\mc{\mathcal}
+\def\R{\mbb{R}}
+\def\Q{\mbb{Q}}
+\def\Z{\mbb{Z}}
+\def\C{\mbb{C}}
+\def\N{\mbb{N}}
+\def\F{\mbb{F}}
+\def\T{\mc{T}}
+\def\A{\mc{A}}
+\def\E{\mbb{E}}
+\def\P{\mbb{P}}
+\def\X{\mathfrak{X}}
+\def\e{\epsilon}
+\def\d{\delta}
+\def\h{\hbar}
+\def\Ra{\Rightarrow}
+\def\La{\Leftarrow}
+\def\and{\quad \text{and} \quad}
+
+\def\nemt{\neq \emptyset}
+\newcommand{\dif}[2]{\frac{d#1}{d#2}}
+\newcommand{\pardif}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\twopardif}[2]{\frac{\partial ^2 #1}{\partial #2^2}}
+\newcommand{\Matrix}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+\newcommand{\Lint}[1]{\ointctrclockwise_{#1}}
+\newcommand{\Ang}[1]{\left\langle #1 \right\rangle}
+\newcommand{\Inn}{\langle \cdot , \cdot \rangle}
+\newcommand{\norm}[1]{\left\| #1 \right\|}
+\newcommand{\blanknorm}[1]{\| \cdot \|_{#1}}
+\newcommand{\epfrac}[1]{\frac{\e}{#1}}
+\newcommand{\ext}[1]{\tilde{\mb #1}}
+
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\bar}{\overline} 
+\renewcommand{\hat}{\widehat}
+
+
+\declaretheoremstyle[
+  headfont=\color{mypink}\normalfont\bfseries,
+%  bodyfont=\color{red}\normalfont\itshape,
+]{pink}
+
+\declaretheoremstyle[
+  headfont=\color{black}\normalfont\bfseries,
+%  bodyfont=\color{red}\normalfont\itshape,
+]{boxedsolution}
+
+\theoremstyle{pink}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{boxedsolution}
+\newtheorem*{bproof}{Proof}
+\newtheorem*{solution}{Solution}
+  
+\theoremstyle{definition}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{corollary}[definition]{Corollary}
+\newtheorem{proposition}[definition]{Proposition}
+\newtheorem{example}[definition]{Example}
+\newtheorem{problem}{Problem}
+\newtheorem{question}{Question}
+
+\newtheoremstyle{claim}
+{\topsep}{\topsep}{}{}%              
+{\bfseries}{:}%             
+{5pt plus 1pt minus 1pt}{}%             
+\theoremstyle{claim}
+% change this to \newtheorem*{claim}{Claim} to leave things un-numbered
+\newtheorem{claim}{Claim}
+
+
+
+\newenvironment{boxsol}
+    {\begin{framed}
+    \begin{solution}
+    }
+    {
+    \end{solution}    
+    \end{framed}}
+    
+\newenvironment{boxproof}
+    {\begin{framed}
+    \begin{bproof}
+    }
+    {
+    \end{bproof}    
+    \end{framed}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{JCP321 - Problem of the Week 9}
+\rhead{Maxim Piatine (1005303100)}
+\cfoot{Page \thepage \ of \pageref{LastPage}}
+
+\begin{document}
+\section*{(a)}
+\[\chi=A
+\Matrix{ 1-i \\
+2+i}\]
+Normalize $|a|^2+|b|^2=1$:
+\[\chi=Aa\Matrix{1\\0}+Ab\Matrix{0\\1}=A(1-i)\Matrix{1\\0}+A(2+i)\Matrix{0\\1}\]
+\vspace{3mm}
+\[|A(1-i)|^2+|A(2+i)|^2=1\]
+\vspace{3mm}
+\[|A|^2\left[(1+i)(1-i)+(2-i)(2+i)\right]=|A|^2\left[1-i^2+4-i^2\right]=|A|^2\left[7\right]=1\]
+\vspace{3mm}
+\[|A|^2=\frac{1}{7} \Rightarrow A=\frac{1}{\sqrt{7}}\]
+
+\section*{(b)}
+Finding the probability of measuring up ($m_s=\frac{1}{2}$) applying $\hat{S}_z$.
+\[\chi=\frac{(1-i)}{\sqrt{7}}\Matrix{1\\ 0}+\frac{(2+i)}{\sqrt{7}}\Matrix{0\\ 1}\]
+\vspace{3mm}
+\[\P\left[\text{Spin up}\right]=|a|^2=\frac{(1+i)}{\sqrt{7}}\frac{(1-i)}{\sqrt{7}}=\frac{1-i^2}{7}=\frac{2}{7}\]
+Using the $\hat{S}_z$ operator:
+\[\hat{S}_z=\frac{\h}{2}\Matrix{1 & 0\\ 0 & -1}\]
+\vspace{3mm}
+
+
+\end{document}

@@ -1,0 +1,70 @@
+\documentclass[11pt]{article} 
+%\usepackage{amsbsy} % for \boldsymbol and \pmb 
+%\usepackage{graphicx} % To include pdf files!
+\usepackage{amsmath}
+\usepackage{amsbsy}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref} % For links
+\usepackage{fullpage}
+\pagestyle{empty}
+\usepackage{pgf,pgfplots,tikz}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tikz}
+\newcommand{\overrightharp}[1]{\hat{#1}}
+\DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\years}{years}
+\DeclareMathOperator{\cm}{cm}
+\newcommand{\vct}{\mathbf}
+\newcommand{\vctproj}[2][]{\proj_{{#1}}\vct{#2}}
+\newtheorem{theorem}{Theorem}
+\DeclareMathOperator{\m}{m}
+\DeclareMathOperator{\kg}{kg}
+\DeclareMathOperator{\N}{N}
+\DeclareMathOperator{\Or}{or}
+\DeclareMathOperator{\J}{J}
+\DeclareMathOperator{\s}{s}
+\DeclareMathOperator{\g}{g}
+\DeclareMathOperator{\W}{W}
+\DeclareMathOperator{\Heatoms}{He\hspace{1mm} atoms}
+\DeclareMathOperator{\MeV}{MeV}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator*{\E}{\mathbb{E}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\usepackage{graphicx}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\DeclareMathOperator{\diverge}{div\,}
+\DeclareMathOperator{\curl}{curl\,}
+\title{\textbf{JCP321 POTW7}
+\author{Maxim Piatine\\1005303100}}
+\date{}
+\DeclareMathOperator{\lineint}{\int \mathbf{v}\cdot d\mathbf{l}}
+\DeclareMathOperator{\surfint}{\int \mathbf{v}\cdot d\mathbf{a}}
+\begin{document}
+\maketitle
+\section*{(a)}
+\[\hat{L}_x=-i\hbar\left(
+-\sin{\phi}\frac{\partial}{\partial \theta}-\cot{\theta}\cos{\phi}\frac{\partial}{\partial \phi}
+\right)\]
+\[l=1\text{ },\text{ }m_l=-1 \text{ } \Rightarrow \text{ } Y^{m_l}_l=Y^{-1}_{1}=\left(\frac{3}{8\pi}\right)^{\frac{1}{2}}\sin{\theta}e^{-i\phi}\]
+\[\hat{L}_xY^{-1}_1=-i\hbar\left(
+-\sin{\phi}\frac{\partial}{\partial \theta}\left(\left(\frac{3}{8\pi}\right)^{\frac{1}{2}}\sin{\theta}e^{-i\phi}\right)-\cot{\theta}\cos{\phi}\frac{\partial}{\partial \phi}
+\left(\left(\frac{3}{8\pi}\right)^{\frac{1}{2}}\sin{\theta}e^{-i\phi}\right)\right)\]
+\[=-i\hbar\left(-\left(\frac{3}{8\pi}\right)^\frac{1}{2}\sin{\phi}e^{-i\phi}\frac{\partial (\sin{\theta})}{\partial \theta}-\left(\frac{3}{8\pi}\right)^{\frac{1}{2}}\cos{\theta}\cos{\phi}\frac{\partial (e^{-i\phi})}{\partial \phi}\right)\]
+\[=\left(\frac{3}{8\pi}\right)^{\frac{1}{2}}\hbar\left(
+i\sin{\phi}e^{-i\phi}\cos{\theta}+i\cos{\theta}\cos{\phi}(-i)e^{-i\phi}
+\right)\]
+\[=\left(\frac{3}{8\pi}\right)^{\frac{1}{2}}\hbar\cos{\theta} e^{-i\phi}\left(
+i\sin{\phi}-i^2\cos{\phi}
+\right)=\left(\frac{3}{8\pi}\right)^{\frac{1}{2}}\hbar\cos{\theta} e^{-i\phi}\left(
+\cos{\phi}+i\sin{\phi}
+\right)\]
+\[=\left(\frac{3}{8\pi}\right)^{\frac{1}{2}}\hbar\cos{\theta} e^{-i\phi}e^{i\phi}=\left(\frac{3}{8\pi}\right)^{\frac{1}{2}}\hbar\cos{\theta}\]
+\section*{(b)}
+No, after applying the operator the answer does not correspond to $\alpha Y^{-1}_1$ where $\alpha$ is a constant! In fact, there is a whole cos term instead of sin and the exponent of phi that got cancelled out due to the Euler substitution. Thus, the stationary state is not an eigen function. 
+\[\left(\frac{3}{8\pi}\right)^{\frac{1}{2}}\hbar\cos{\theta}\neq \alpha\left( \left(\frac{3}{8\pi}\right)^{\frac{1}{2}}\sin{\theta}e^{-i\phi}\right)\]
+
+\section*{(c)}
+\[\E\left[\hat{L}_x\right]=\int_0^{2\pi}\int^\pi_0Y^{-1*}_{\theta,\phi}\hat{L}_xY^{-1}_{\theta,\phi}\sin\theta d\theta d\phi=
+\int_0^{2\pi}\int^\pi_0\left( \left(\frac{3}{8\pi}\right)^{\frac{1}{2}}\sin{\theta}e^{i\phi}\right)\left(\left(\frac{3}{8\pi}\right)^{\frac{1}{2}}\hbar\cos{\theta}\right)\sin\theta d\theta d\phi\]
+\end{document}

@@ -1,0 +1,70 @@
+\documentclass[11pt]{article} 
+%\usepackage{amsbsy} % for \boldsymbol and \pmb 
+%\usepackage{graphicx} % To include pdf files!
+\usepackage{amsmath}
+\usepackage{amsbsy}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref} % For links
+\usepackage{fullpage}
+\pagestyle{empty}
+\usepackage{pgf,pgfplots,tikz}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tikz}
+\newcommand{\overrightharp}[1]{\hat{#1}}
+\DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\years}{years}
+\DeclareMathOperator{\cm}{cm}
+\newcommand{\vct}{\mathbf}
+\newcommand{\vctproj}[2][]{\proj_{{#1}}\vct{#2}}
+\newtheorem{theorem}{Theorem}
+\DeclareMathOperator{\m}{m}
+\DeclareMathOperator{\kg}{kg}
+\DeclareMathOperator{\N}{N}
+\DeclareMathOperator{\Or}{or}
+\DeclareMathOperator{\J}{J}
+\DeclareMathOperator{\s}{s}
+\DeclareMathOperator{\g}{g}
+\DeclareMathOperator{\W}{W}
+\DeclareMathOperator{\Heatoms}{He\hspace{1mm} atoms}
+\DeclareMathOperator{\MeV}{MeV}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator*{\E}{\mathbb{E}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\usepackage{graphicx}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\DeclareMathOperator{\diverge}{div\,}
+\DeclareMathOperator{\curl}{curl\,}
+\title{\textbf{JCP321 POTW6}
+\author{Maxim Piatine\\1005303100}}
+\date{}
+\DeclareMathOperator{\lineint}{\int \mathbf{v}\cdot d\mathbf{l}}
+\DeclareMathOperator{\surfint}{\int \mathbf{v}\cdot d\mathbf{a}}
+\begin{document}
+\maketitle
+\[\Psi(\Vec{r},0)=A\exp\left(\frac{-ar}{2}\right)e^{i\phi}\cos{\theta}\]
+\[\int \int \int |\Psi(\Vec{r},0)|^2dV=1\]
+\[=\int^\pi_0\int^{2\pi}_0\int^\infty_0 \left(A\exp\left(\frac{-ar}{2}\right)e^{-i\phi}\cos{\theta}\right)
+\left(A\exp\left(\frac{-ar}{2}\right)e^{i\phi}\cos{\theta}\right)r^2\sin{\theta}drd\phi d\theta\]
+\[=A^2\left(
+\int^\pi_0 \cos^2{\theta}\sin{\theta}d\theta
+\int^{2\pi}_0 e^{(-i\phi+i\phi)} d\phi 
+\int^\infty_0 \exp{\left( \frac{-ar}{2} + \frac{-ar}{2}\right)}r^2dr
+\right)\]
+
+\[=A^2\left(
+\int^\pi_0 \cos^2{\theta}\sin{\theta}d\theta
+\int^{2\pi}_0 d\phi 
+\int^\infty_0 e^{-ar}r^2dr
+\right)\]
+\[=A^2\left(\left[
+\frac{-\cos^3{\theta}}{3}\right]^\pi_0
+\left[\theta\right]^{2\pi}_0
+\left[\frac{2}{a^3}\right]\right)\]
+
+\[=A^2\left(\frac{2}{3}\right)(2\pi)\left(\frac{2}{a^3}\right)=1\]
+\[A^2=\frac{3a^3}{8\pi}\]
+\[A=\pm\sqrt{\frac{3a^3}{8\pi}}\]
+I got the spherical integral from wikipedia 
+\\\url{https://en.wikipedia.org/wiki/Spherical_coordinate_system}
+\end{document}

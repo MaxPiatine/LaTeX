@@ -1,0 +1,92 @@
+\documentclass[11pt]{article} 
+%\usepackage{amsbsy} % for \boldsymbol and \pmb 
+%\usepackage{graphicx} % To include pdf files!
+\usepackage{amsmath}
+\usepackage{amsbsy}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref} % For links
+\usepackage{fullpage}
+\pagestyle{empty}
+\usepackage{pgf,pgfplots,tikz}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tikz}
+\newcommand{\overrightharp}[1]{\hat{#1}}
+\DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\years}{years}
+\DeclareMathOperator{\cm}{cm}
+\newcommand{\vct}{\mathbf}
+\newcommand{\vctproj}[2][]{\proj_{{#1}}\vct{#2}}
+\newtheorem{theorem}{Theorem}
+\DeclareMathOperator{\m}{m}
+\DeclareMathOperator{\kg}{kg}
+\DeclareMathOperator{\N}{N}
+\DeclareMathOperator{\Or}{or}
+\DeclareMathOperator{\J}{J}
+\DeclareMathOperator{\s}{s}
+\DeclareMathOperator{\g}{g}
+\DeclareMathOperator{\W}{W}
+\DeclareMathOperator{\Heatoms}{He\hspace{1mm} atoms}
+\DeclareMathOperator{\MeV}{MeV}
+\DeclareMathOperator{\tr}{tr}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\usepackage{graphicx}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\DeclareMathOperator{\diverge}{div\,}
+\DeclareMathOperator{\curl}{curl\,}
+\title{\textbf{JCP321 POTW4}
+\author{Maxim Piatine\\1005303100}}
+\date{}
+\DeclareMathOperator{\lineint}{\int \mathbf{v}\cdot d\mathbf{l}}
+\DeclareMathOperator{\surfint}{\int \mathbf{v}\cdot d\mathbf{a}}
+\begin{document}
+\maketitle
+\section*{(a)}
+The question is asking to define a wave function $\Psi(x,0)$ where the particles are equally likely to be found anywhere in $x\in[\frac{a}{4},\frac{3a}{4}]$. $\Psi(x,0)$ needs to be strictly real, positive function. Thus, the function I went with is 
+\[\Psi(x,0)=
+\begin{cases}
+    \alpha,\text{ if } x\in[\frac{a}{4},\frac{3a}{4}]\\
+    0 & , \text{otherwise}
+\end{cases}\]
+The wave function is continuous, differentiable, and positive. 
+\[\int^{\infty}_{-\infty}|\Psi(x,0)|^2dx = 1\]
+\[=\int_{-\infty}^{\frac{a}{4}}0 dx+
+\int^{\frac{3a}{4}}_{\frac{a}{4}} \alpha^2 dx+\int_{\frac{3a}{4}}^{\infty}0dx=
+\int^{\frac{3a}{4}}_{\frac{a}{4}} \alpha^2 dx\]
+\[=\left[
+\alpha^2x
+\right]^{\frac{3a}{4}}_{\frac{a}{4}}=[\alpha^2(\frac{3a}{4})-\alpha^2(\frac{a}{4})]=[\alpha^2(\frac{a}{2})]=1\]
+\[\Rightarrow \alpha=\sqrt{\frac{2}{a}}\]
+\[\Psi(x,0)=\begin{cases}
+    \sqrt{\frac{2}{a}} & ,\text{if } x\in[\frac{a}{4},\frac{3a}{4}]\\
+    0 & ,\text{otherwise}
+\end{cases}\]
+
+\newpage
+\section*{(b)}
+\[c_n=\sqrt{\frac{2}{a}}\int^{\frac{3a}{4}}_{\frac{a}{4}}\sin{\left( \frac{n\pi x}{a}\right)}\Psi(x,0)dx=\sqrt{\frac{2}{a}}\int^{\frac{3a}{4}}_{\frac{a}{4}}\sin{\left( \frac{n\pi x}{a}\right)}\sqrt{\frac{2}{a}}dx=\frac{2}{a}\int^{\frac{3a}{4}}_{\frac{a}{4}}\sin{\left( \frac{n\pi x}{a}\right)}\]
+\[=\frac{2}{a}\left[ -\frac{a}{n\pi}\cos{\left(\frac{n\pi x}{a}\right)}\right]^{\frac{3a}{4}}_{\frac{a}{4}}=\frac{-2}{n\pi}\left[ \cos{\left(\frac{3n\pi}{4}\right)}-\cos{\left(\frac{n\pi}{4}\right)}\right]\]
+
+Therefore, the general solution to the time-dependent Schrodinger equation is a linear combination of stationary states:
+\[\Psi(x,t)=\sum_{n=1}^{\infty}c_n \sqrt{\frac{2}{a}}\sin{(\frac{n\pi x}{a})}\exp{\left(-i(\frac{n^2\pi^2\hbar}{2ma^2})t\right)}\]
+
+\[\Psi(x,t)=-\frac{2\sqrt{2}}{\sqrt{a}\pi}
+\sum^{\infty}_{n=1}
+\frac{1}{n}\left[\cos{\left(\frac{3n\pi}{4}\right)}-\cos{\left(\frac{n\pi}{4}\right)} \right]
+\sin{(\frac{n\pi x}{a})}\exp{\left(-i(\frac{n^2\pi^2\hbar}{2ma^2})t\right)}\]
+Time independent:
+\[\Psi(x,0)=-\frac{2\sqrt{2}}{\sqrt{a}\pi}
+\sum^{\infty}_{n=1}
+\frac{1}{n}\left[\cos{\left(\frac{3n\pi}{4}\right)}-\cos{\left(\frac{n\pi}{4}\right)} \right]
+\sin{(\frac{n\pi x}{a})}\]
+\section*{(c)}
+Using the $c_n$:
+\[c_n=\frac{-2}{n\pi}\left[ \cos{\left(\frac{3n\pi}{4}\right)}-\cos{\left(\frac{n\pi}{4}\right)}\right]\]
+We find $c_1$; meaning $n=1$:
+\[c_1=\frac{-2}{(1)\pi}\left[ \cos{\left(\frac{3(1)\pi}{4}\right)}-\cos{\left(\frac{(1)\pi}{4}\right)}\right]=\frac{-2}{\pi}\left[ \frac{-\sqrt{2}}{2}-\frac{\sqrt{2}}{2}\right]=\frac{-2}{\pi}(\sqrt{-2})=\frac{2\sqrt{2}}{\pi}=0.9003\]
+We find $c_2$; meaning $n=2$:
+\[c_2=\frac{-2}{(2)\pi}\left[ \cos{\left(\frac{3(2)\pi}{4}\right)}-\cos{\left(\frac{(2)\pi}{4}\right)}\right]=
+\frac{-1}{\pi}\left[ \cos{\left(\frac{3\pi}{2}\right)}-\cos{\left(\frac{\pi}{2}\right)}\right]
+=\frac{-1}{\pi}\left[ 0 - 0\right]=0\]
+
+\end{document}

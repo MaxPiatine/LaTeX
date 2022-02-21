@@ -1,0 +1,197 @@
+\documentclass[11pt]{article} 
+%\usepackage{amsbsy} % for \boldsymbol and \pmb 
+%\usepackage{graphicx} % To include pdf files!
+\usepackage{amsmath}
+\usepackage{amsbsy}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref} % For links
+\usepackage{fullpage}
+\pagestyle{empty}
+\usepackage{pgf,pgfplots,tikz}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tikz}
+\newcommand{\overrightharp}[1]{\hat{#1}}
+\DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\years}{years}
+\DeclareMathOperator{\cm}{cm}
+\newcommand{\vct}{\mathbf}
+\newcommand{\vctproj}[2][]{\proj_{{#1}}\vct{#2}}
+\newtheorem{theorem}{Theorem}
+\DeclareMathOperator{\m}{m}
+\DeclareMathOperator{\kg}{kg}
+\DeclareMathOperator{\N}{N}
+\DeclareMathOperator{\Or}{or}
+\DeclareMathOperator{\J}{J}
+\DeclareMathOperator{\s}{s}
+\DeclareMathOperator{\g}{g}
+\DeclareMathOperator{\W}{W}
+\DeclareMathOperator{\Heatoms}{He\hspace{1mm} atoms}
+\DeclareMathOperator{\MeV}{MeV}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator*{\E}{\mathbb{E}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\usepackage{graphicx}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\DeclareMathOperator{\diverge}{div\,}
+\DeclareMathOperator{\curl}{curl\,}
+\title{\textbf{JCP321 POTW8}
+\author{Maxim Piatine\\1005303100}}
+\date{}
+\DeclareMathOperator{\lineint}{\int \mathbf{v}\cdot d\mathbf{l}}
+\DeclareMathOperator{\surfint}{\int \mathbf{v}\cdot d\mathbf{a}}
+\begin{document}
+\maketitle
+\section*{(a)}
+\[Z=3, m_l=1\]
+The electron is in the 3d orbital, therefore, $n=3$ and $l=2$ which will help determining the radial wavefunction from the table on slide 14 of Topic 12:
+
+\[R_{3,2}(\rho)=\frac{1}{81\sqrt{30}}\left(
+\frac{Z}{a_0}
+\right)^\frac{3}{2}
+\rho^2 e^{-\frac{\rho}{6}}\]
+
+\vspace{3mm}
+\[a_0=\frac{4\pi \epsilon_0 \hbar^2}{m_le^2}=\frac{4\pi \epsilon_0 \hbar^2}{e^2}\]
+
+\vspace{3mm}
+\[\rho=\frac{2Zr}{a_0}=\frac{2(3)r}{\frac{4\pi \epsilon_0 \hbar^2}{e^2}}=\frac{6e^2r}{4\pi \epsilon_0 \hbar^2}
+=\frac{3e^2r}{2\pi \epsilon_0 \hbar^2}\]
+
+\vspace{3mm}
+\[R_{3,2}(r)=\frac{1}{81\sqrt{30}}
+\left(
+\frac{3e^2}{4\pi \epsilon_0\hbar^2}
+\right)^\frac{3}{2}
+\left(
+\frac{3e^2r}{2\pi \epsilon_0 \hbar^2}
+\right)^2
+e^{-\frac{6e^2r}{24\pi\epsilon_0\hbar^2}}\]
+
+\vspace{3mm}
+\[
+=\frac{1}{81\sqrt{30}}
+\left(
+\frac{3e^2}{4\pi \epsilon_0\hbar^2}
+\right)^\frac{3}{2}
+\left(
+\frac{3e^2r}{2\pi \epsilon_0 \hbar^2}
+\right)^2
+e^{-\frac{e^2r}{4\pi\epsilon_0\hbar^2}}
+\]
+
+\vspace{3mm}
+\[=\frac{1}{81\sqrt{30}}\left(\frac{1}{2}\right)^{\frac{3}{2}}(r^2)
+\left(
+\frac{3e^2}{2\pi \epsilon_0\hbar^2}
+\right)^\frac{3}{2}
+\left(
+\frac{3e^2}{2\pi \epsilon_0 \hbar^2}
+\right)^2
+e^{-\frac{e^2r}{4\pi\epsilon_0\hbar^2}}\]
+
+\vspace{3mm}
+\[
+=\frac{r^2}{81\sqrt{8}\sqrt{30}}
+\left(
+\frac{3e^2}{2\pi \epsilon_0\hbar^2}
+\right)^\frac{7}{2}
+e^{-\frac{e^2r}{4\pi\epsilon_0\hbar^2}}=
+\frac{r^2}{648\sqrt{15}}
+\left(
+\frac{3e^2}{2\pi \epsilon_0\hbar^2}
+\right)^\frac{7}{2}
+e^{-\frac{e^2r}{4\pi\epsilon_0\hbar^2}}
+\]
+
+\vspace{5mm}
+\[
+Y^{m_l}_{l}=Y^{1}_{2}=-\left(\frac{15}{8\pi}\right)^\frac{1}{2}
+\cos{\theta}\sin{\theta}e^{i\phi}
+\]
+
+\vspace{5mm}
+\[\psi_{n,l,m_l}(r,\theta,\phi)=R_{n,l}(r)Y^{m_l}_l(\theta,\phi)\]
+
+\vspace{2mm}
+\[\psi_{3,2,1}(r,\theta,\phi)=R_{3,2}(r)Y^{1}_2(\theta,\phi)=-\frac{r^2}{648\sqrt{15}}
+\left(
+\frac{3e^2}{2\pi \epsilon_0\hbar^2}
+\right)^\frac{7}{2}
+e^{-\frac{e^2r}{4\pi\epsilon_0\hbar^2}}
+\left(\frac{15}{8\pi}\right)^\frac{1}{2}
+\cos{\theta}\sin{\theta}e^{i\phi}
+\]
+
+\vspace{2mm}
+\[
+=-\frac{r^2}{648\sqrt{15}}\left(\frac{15}{8\pi}\right)^\frac{1}{2}
+\left(
+\frac{3e^2}{2\pi \epsilon_0\hbar^2}
+\right)^\frac{7}{2}
+\cos{\theta}\sin{\theta}e^{\left(i\phi-\frac{e^2r}{4\pi\epsilon_0\hbar^2}\right)}=
+-\frac{r^2}{1296\sqrt{2\pi}}
+\left(
+\frac{3e^2}{2\pi \epsilon_0\hbar^2}
+\right)^\frac{7}{2}
+\cos{\theta}\sin{\theta}e^{\left(i\phi-\frac{e^2r}{4\pi\epsilon_0\hbar^2}\right)}
+\]
+
+\section*{(b)}
+\[|\psi|^2=|R_{3,2}(r)|^2|Y^1_2(\theta,\phi)|^2\]
+
+\vspace{2mm}
+\[R_{3,2}(r)=\frac{4r^2}{81\sqrt{30}}\left(\frac{3}{a_0}\right)^{\frac{7}{2}}e^{-\frac{r}{a_0}}\]
+
+\vspace{2mm}
+\[
+Y^1_2(\theta,\phi)=-\left(\frac{15}{8\pi}\right)^\frac{1}{2}
+\cos{\theta}\sin{\theta}e^{i\phi}
+\]
+
+\vspace{5mm}
+\[|R_{3,2}(r)|^2=\left|\frac{4r^2}{81\sqrt{30}}\left(\frac{3}{a_0}\right)^{\frac{7}{2}}e^{-\frac{r}{a_0}}\right|^2=
+\left(\frac{4r^2}{81\sqrt{30}}\right)^2\left(\frac{3}{a_0}\right)^7e^{-\frac{2r}{a_0}}
+\]
+
+\vspace{2mm}
+\[|Y^1_2(\theta,\phi)|^2=\left|-\left(\frac{15}{8\pi}\right)^\frac{1}{2}
+\cos{\theta}\sin{\theta}e^{i\phi}\right|^2=
+\left(
+-\left(\frac{15}{8\pi}\right)^\frac{1}{2}
+\cos{\theta}\sin{\theta}e^{-i\phi}
+\right)
+\left(
+-\left(\frac{15}{8\pi}\right)^\frac{1}{2}
+\cos{\theta}\sin{\theta}e^{i\phi}
+\right)\]
+
+\vspace{2mm}
+\[
+=\left(\frac{15}{8\pi}\cos^2\theta\sin^2\theta\right)
+\]
+
+\vspace{5mm}
+\[\mathbb{P}\{\text{electron being found}\}=\int^{2\pi}_0\int^\pi_0\int^{ka_0}_0|\psi|^2r^2\sin\theta drd\theta d\phi\]
+
+\vspace{3mm}
+\[=\int^{2\pi}_0\int^\pi_0\int^{ka_0}_0 |R_{3,2}(r)|^2|Y^1_2(\theta,\phi)|^2r^2\sin\theta drd\theta d\phi\]
+
+\vspace{2mm}
+\[=\left(\frac{4}{81\sqrt{30}}\right)^2\left(\frac{3}{a_0}\right)^7
+\int^{ka_0}_0 r^4e^{-\frac{2r}{a_0}}r^2dr=\frac{8}{45}\int^{ka_0}_0r^4e^{-\frac{2r}{a_0}}r^2 dr\]
+
+Let $c=\frac{2}{a_0}$:
+
+\[=\frac{8}{45a_0^7}\left[-e^{-cr}\left(
+\frac{720+720cr+360c^2r^2+120c^3r^3+30c^4r^4+6c^5r^5+c^6r^6}{c^7}
+\right)\right]^{ka_0}_{0}\]
+
+\[=\frac{8}{45a_0^7}\left[-e^{-2k}\left(
+\frac{720+720(2k)+360(2k)^2+120(2k)^3+30(2k)^4+6(2k)^5+(2k^6)}{\frac{2^7}{a_0^7}}
+\right) \right]\]
+
+\[=\frac{8}{45}\left[-e^{-2k}\left(\frac{720+1440k+1440k^2+960k^3+480k^4+192k^5+64}{128}\right)\right]\]
+
+
+\end{document}

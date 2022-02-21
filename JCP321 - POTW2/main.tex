@@ -1,0 +1,57 @@
+\documentclass[11pt]{article} 
+%\usepackage{amsbsy} % for \boldsymbol and \pmb 
+%\usepackage{graphicx} % To include pdf files!
+\usepackage{amsmath}
+\usepackage{amsbsy}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref} % For links
+\usepackage{fullpage}
+\pagestyle{empty}
+\usepackage{pgf,pgfplots,tikz}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tikz}
+\newcommand{\overrightharp}[1]{\hat{#1}}
+\DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\years}{years}
+\DeclareMathOperator{\cm}{cm}
+\newcommand{\vct}{\mathbf}
+\newcommand{\vctproj}[2][]{\proj_{{#1}}\vct{#2}}
+\newtheorem{theorem}{Theorem}
+\DeclareMathOperator{\m}{m}
+\DeclareMathOperator{\kg}{kg}
+\DeclareMathOperator{\N}{N}
+\DeclareMathOperator{\Or}{or}
+\DeclareMathOperator{\J}{J}
+\DeclareMathOperator{\s}{s}
+\DeclareMathOperator{\g}{g}
+\DeclareMathOperator{\W}{W}
+\DeclareMathOperator{\Heatoms}{He\hspace{1mm} atoms}
+\DeclareMathOperator{\MeV}{MeV}
+\DeclareMathOperator{\tr}{tr}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\usepackage{graphicx}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\DeclareMathOperator{\diverge}{div\,}
+\DeclareMathOperator{\curl}{curl\,}
+\title{\textbf{JCP321 POTW2}
+\author{Maxim Piatine\\1005303100}}
+\date{}
+\DeclareMathOperator{\lineint}{\int \mathbf{v}\cdot d\mathbf{l}}
+\DeclareMathOperator{\surfint}{\int \mathbf{v}\cdot d\mathbf{a}}
+\begin{document}
+\maketitle
+\[ \Psi(x,0)=\begin{cases} 
+      Ae^{\frac{x}{2}}, & x < 0 \\
+      Ae^{\frac{-x}{2}}, & x\geq 0
+   \end{cases}
+\]
+Normalize the wavefunction by finding all allowed values of the constant A. Assume that A is a real number. (But think about what would happen if we allowed A to be a complex value instead.)
+\[\int^\infty_{-\infty}|\psi(x,t)|^2dx=1
+=\int^\infty_{-\infty}\psi \cdot \psi dx\]
+\[=\int^0_{-\infty}Ae^{\frac{x}{2}} \cdot Ae^{\frac{x}{2}} dx + \int^\infty_{0}Ae^{\frac{-x}{2}} \cdot Ae^{\frac{-x}{2}} dx\]
+\[=A^2[\int^0_{-\infty}e^{x} dx + \int^\infty_{0}e^{-x} dx]=
+A^2[e^x|^0_{-\infty}-e^{-x}|^\infty_0]=A^2(2)\]
+\[A^2=\frac{1}{2}\]
+\[A=\pm \frac{1}{\sqrt{2}}\]
+\end{document}
