@@ -1,0 +1,248 @@
+\documentclass[11pt]{article} 
+%\usepackage{amsbsy} % for \boldsymbol and \pmb 
+%\usepackage{graphicx} % To include pdf files!
+\usepackage{amsmath}
+\usepackage{amsbsy}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref} % For links
+\usepackage{fullpage}
+\pagestyle{empty}
+\usepackage{pgf,pgfplots,tikz}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tikz}
+\newcommand{\overrightharp}[1]{\hat{#1}}
+\DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\years}{years}
+\DeclareMathOperator{\cm}{cm}
+\newcommand{\vct}{\mathbf}
+\newcommand{\vctproj}[2][]{\proj_{{#1}}\vct{#2}}
+\newtheorem{theorem}{Theorem}
+\DeclareMathOperator{\m}{m}
+\DeclareMathOperator{\kg}{kg}
+\DeclareMathOperator{\N}{N}
+\DeclareMathOperator{\Or}{or}
+\DeclareMathOperator{\J}{J}
+\DeclareMathOperator{\s}{s}
+\DeclareMathOperator{\g}{g}
+\DeclareMathOperator{\W}{W}
+\DeclareMathOperator{\Heatoms}{He\hspace{1mm} atoms}
+\DeclareMathOperator{\MeV}{MeV}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator*{\E}{\mathbb{E}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\usepackage{graphicx}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\DeclareMathOperator{\diverge}{div\,}
+\DeclareMathOperator{\curl}{curl\,}
+
+\newtheoremstyle{claim}
+{\topsep}{\topsep}{}{}%              
+{\bfseries}{:}%             
+{5pt plus 1pt minus 1pt}{}%             
+\theoremstyle{claim}
+% change this to \newtheorem*{claim}{Claim} to leave things un-numbered
+\newtheorem*{claim}{Claim}
+
+
+\title{\textbf{STA304 Assignment 1}
+\author{Maxim Piatine\\1005303100}}
+\date{}
+\DeclareMathOperator{\lineint}{\int \mathbf{v}\cdot d\mathbf{l}}
+\DeclareMathOperator{\surfint}{\int \mathbf{v}\cdot d\mathbf{a}}
+\begin{document}
+\maketitle
+\section*{Question 1}
+\url{https://www23.statcan.gc.ca/imdb/p2SV.pl?Function=getSurvey&SDDS=5244}
+\vspace{5mm}
+\\(a) This is a 2019 survey and the point was to deduce the impact of cybercrime on Canadian local businesses. Do these businesses take measures to secure themselves, questions like: 
+\[\text{"How many employees does your business have that help with cyber security"}\]
+\[\text{"Which activities does your business undertake to identify cyber security risks?"}\]
+The survey selects businesses within the NAICS sectors that do not contain less than 10 employees, and make over a certain amount per sector. The data collected from these surveys are intended for improvement of cyber resilience, understanding the impact of cybercrime, and to study cyber security.
+\vspace{5mm}
+\\(b) 
+\vspace{2mm}
+\\\textbf{Population:} All the Canadian businesses engaged in production of goods/services. 
+\vspace{2mm}
+\\\textbf{Sampling Unit(s):} A Canadian business within the 2017 NAICS sectors and restrictions.
+\vspace{2mm}
+\\\textbf{Sampling Frame(s):} All the Canadian businesses within the 2017 NAICS sectors and restrictions
+\vspace{2mm}
+\\\textbf{Sample Size(s):} final sample size was $12,274$ enterprises
+\vspace{2mm}
+\\\textbf{Parameter(s):} proportion of survey sample allocated to its domain, number of enterprises in its domain, and its revenue.
+\vspace{5mm}
+\\(c) They used stratified random sampling, they separated by the size and industry "Three size categories were built: small (10-49 employees), medium (50-249 employees) and large (250 or more employees)." then randomly selected the businesses from there using simple random sampling. 
+\vspace{5mm}
+\\(d) Since they used a questionnaires and telephone interviews regarding cyber security to collect data, it is possible that there was a non-response bias. 
+
+\newpage
+\section*{Question 2}
+(4)The impact of COVID-19 on the student's mental health.
+\vspace{5mm}
+\\(a) A survey is conducted to find the impact of COVID-19 on university student's mental health in the Greater Toronto Area. The objective of the survey was to estimate the proportion of university student's who suffered with mental health disorders due to the COVID-19 pandemic.  
+\vspace{2mm}
+\\\textbf{Population:} The collection of university student's in the GTA that were in school during the COVID-19 pandemic.
+\vspace{2mm}
+\\\textbf{Sampling Unit(s):} One university
+\vspace{2mm}
+\\\textbf{Variable(s) of Interest:} proportion
+\vspace{2mm}
+\\\textbf{Parameter(s):} proportion of students who suffered through mental health disorders during the pandemic, average number of students at each university in the gta.
+\vspace{5mm}
+\\(b) The sampling frame will be all the universities in the GTA, which I believe there to be 22 universities/colleges. Sending out links to a survey with a giveaway might be helpful, compensating students to participate in a survey.
+\vspace{5mm}
+\\(c) We can used stratified random sampling. First we divide students according to colleges. From each stratum, we do a simple random sampling on the students up until we get the average of student of each university in the GTA.
+\vspace{5mm}
+\\(d)
+\[\text{"Are you currently enrolled in a University in the Greater Toronto Area? If yes, where?:"}\]
+\[\text{(A) No (B) Yes:}\]
+\[\text{"Has the pandemic negatively affected your university experience? If yes explain:"}\]
+\[\text{(A) No (B) Yes:}\]
+\[\text{"Would you say that the pandemic affected your mental health?"}\]
+\[\text{(A) Strongly Disagree (B) Disagree (C) Neutral (D) Agree (E) Strongly Agree}\]
+\vspace{5mm}
+\\(e) Definitely non response bias, due to the fact that we are researching students that are busy with school and maybe don't have the time to fill out a survey. 
+
+\newpage
+\section*{Question 3}
+(a) $\E[s^2]=\sigma^2$
+\begin{proof}
+\[s^2=\frac{1}{n-1}\sum^n_{i=1}(y_i-\Bar{y})^2\]
+\[\E\left[ s^2 \right] = \E\left[ 
+\frac{1}{n-1}\sum^n_{i=1}(y_i-\Bar{y})^2
+\right]=\frac{1}{n-1}\E\left[
+\sum^n_{i=1}(y_i-\Bar{y})^2
+\right]=
+\frac{1}{n-1}\E\left[
+\sum^n_{i=1}(y_i^2-n\Bar{y}^2)
+\right]\]
+\[=\frac{1}{n-1}\left(
+\E\left[ 
+\sum^n_{i=1}y_i^2
+\right]-
+\E\left[
+n\Bar{y}^2
+\right]
+\right)\]
+
+Evaluating the expected values separately: 
+\[\E\left[ 
+\sum^n_{i=1}y_i^2
+\right]=\sum^n_{i=1}\E[y_i^2]=
+\sum^n_{i=1}\left(\E[y_i]^2+V(y_i)\right)=
+\sum^n_{i=1} (\mu^2 + \sigma^2)=
+n\mu^2 + n\sigma^2\]
+
+\[\E\left[
+n\Bar{y}^2
+\right]=n\E\left[
+\Bar{y}^2
+\right]=
+n(\E[\Bar{y}]^2+V(\Bar{y}))=n(\mu^2+\frac{\sigma^2}{n})=n\mu^2+\sigma^2\]
+
+Substituting the expected values into the main equation:
+\[=\frac{1}{n-1}(n\mu^2 + n\sigma^2 -n\mu^2-\sigma^2 )=
+\frac{1}{n-1}(n\sigma^2-\sigma^2)=
+\frac{\sigma^2}{n-1}(n-1)=\sigma^2\]
+Therefore, $s^2$ is an unbiased estimated of $\sigma^2$.
+\end{proof}
+\noindent (b)Can you conclude that $s$ is unbiased estimator of $\sigma$?\\
+If it is assumed that that sampling is with replacement then we have to account for the amount of samples $n$ and population $N$. Since the formulas of sample and population standard deviation differ of a factor of $\frac{1}{N}$ and $\frac{1}{n-1}$ the smaller the sample size the smaller the sample standard deviation. 
+\[\E[s]=\sigma \Rightarrow \E[s]^2=\sigma^2 \Rightarrow \E[s^2]-V(s)=\sigma^2 \Rightarrow \sigma^2 -V(s) =\sigma^2\]
+We know that $V(s) \geq 0$; depending on the sample size. Thus, we cannot conclude that $s$ is unbiased estimator of $\sigma$
+\vspace{5mm}
+\\(c)Derive unbiased estimator of $\sigma^2_{\Bar{y}}$, the variance of $\Bar{y}$.
+\begin{claim}
+$\hat{\sigma}^2_{\Bar{y}} \text{ is an unbiased estimator of } \sigma^2_{\Bar{y}}$
+\end{claim} 
+\begin{proof}
+\[\sigma^2_{\Bar{y}}=V(\Bar{y})\]
+\[\E\left[\hat{\sigma}^2_{\Bar{y}}\right]=\E\left[\hat{V}(\Bar{y})\right]=\E\left[\hat{V}\left(\frac{1}{n}\sum^n_{i=1}y_i\right)\right]=\E\left[\frac{1}{n^2}\sum^n_{i=1}\hat{V}(y_i)\right]=\frac{1}{n^2}\E\left[ns^2\right]=\frac{1}{n}\E[s^2]\]
+Using the proof from question 3 (a), we can use the fact that $s^2$ is an unbiased estimator of $\sigma^2$ ($\E[s^2]=\sigma^2$):
+\[\frac{1}{n}\E[s^2]=\frac{1}{n}\sigma^2=V(\Bar{y})\]
+\end{proof}
+\newpage
+\noindent (d)Derive unbiased estimator of $\sigma^2_{\hat{\tau}}$, the variance of $\hat{\tau}$.
+\begin{claim}
+$\hat{\sigma}^2_{\hat{\tau}} \text{ is an unbiased estimator of } \sigma^2_{\hat{\tau}}$
+\end{claim}
+\begin{proof}
+\[\sigma^2_{\hat{\tau}}=V(\hat{\tau})\]
+\[\E\left[ \hat{\sigma}^2_{\hat{\tau}}\right]=\E\left[\hat{V}(\hat{\tau})\right]=\E\left[\hat{V}(N\Bar{y})\right]=\E\left[N^2\hat{V}(\Bar{y})\right]=N^2\E\left[\hat{V}\left(\frac{1}{n}\sum^n_{i=1}y_i\right)\right]=N^2\E\left[\frac{1}{n^2}\sum^n_{i=1}\hat{y_i}\right]\]
+\[=\frac{N^2}{n^2}\E\left[ns^2\right]=\frac{N^2}{n}\E[s^2]=\frac{N^2}{n}\sigma^2=V(\hat{\tau})\]
+\end{proof}
+\newpage
+\section*{Question 4}
+(4.27)
+\[N=1500,\text{   } n=100,\text{   } \Bar{y}=25.2,\text{   } s^2=136\]
+The estimator of total number of count trees is measured with $\hat{\tau}=N\Bar{y}$:
+\[\hat{\tau}=1500(25.2)=37800\]
+The bound on the error of estimation is measured by $B=\frac{2Ns}{\sqrt{n}}\sqrt{1-\frac{n}{N}}$:
+\[B=\frac{2(1500)\sqrt{136}}{\sqrt{100}}\sqrt{1-\frac{100}{1500}}=3379.94\]
+\[\Rightarrow \text{ } \tau \in \left(\hat{\tau}\pm B\right)\text{ } \Rightarrow \text{ } \tau \in \left( 37800\pm 3380\right)\]
+We are $95\%$ confident that the total number count of trees on the plantation is between $34400$ and $72200$.
+\vspace{10mm}
+\\(4.28)
+\[n=\frac{N\sigma^2}{(N-1)(\frac{B^2}{4N^2})+\sigma^2} \text{ where $B=1500$ } \Rightarrow \text{ }\frac{1500(136)}{(1500-1)\left(\frac{1500^2}{4(1500^2)}+136\right)}=399.41\]
+Therefore, the sample size required to estimate $\tau$ is $400$ one-acre plots.
+\vspace{10mm}
+\\(4.41)
+\[n=20, \text{ } N=500\]
+Using the data below, we calculate the sample average and sample standard deviation:
+\[\Bar{y}=\frac{1}{n}\sum^{20}_{i=1}y_i=\frac{278+192+310+...+219+305}{20}=197.1\]
+\[s^2=\frac{1}{n-1}\sum^{20}_{i=1}(y_i-\Bar{y})^2=\frac{1}{19}\left[(278-197.1)^2+(192-197.2)^2+...+(219-197.1)^2+(305-197.1)^2\right]\]
+\[s^2=8255.04\approx 8255\]
+\begin{center}
+\begin{tabular}{ c c c }
+ Account & Amount\\
+ 1 & 278\\
+ 2 & 192\\
+ 3 & 310\\
+ 4 & 94\\
+ 5 & 86\\
+ 6 & 335\\
+ 7 & 310\\
+ 8 & 290\\
+ 9 & 221\\
+ 10 & 168\\
+ 11 & 188\\
+ 12 & 212\\
+ 13 & 92\\
+ 14 & 56\\
+ 15 & 142\\
+ 16 & 37\\
+ 17 & 186\\
+ 18 & 221\\
+ 19 & 219\\
+ 20 & 305
+ 
+\end{tabular}
+\end{center}
+\vspace{5mm}
+\[\hat{\tau}=N\Bar{y}=500(197.1)=98550\]
+\[B=\frac{2Ns}{\sqrt{n}}\sqrt{1-\frac{n}{N}}=\frac{2(500)\sqrt{8255}}{\sqrt{20}}\sqrt{1-\frac{20}{500}}=19905.78\approx 19906\]
+\[\Rightarrow \text{ } \tau \in (\hat{\tau}\pm B) \text{ } \Rightarrow \text{ } \tau \in (98550 \pm 19906)\]
+To estimate the population mean in the $95\%$ confidence interval, we have $\Bar{y}$; now we're looking for the bound:
+\[B=2\sqrt{\frac{s^2}{n}(1-\frac{n}{N})}=2\sqrt{\frac{8255}{20}(1-\frac{20}{500})}=39.812\approx 39.8\]
+\[\Rightarrow \text{ } \mu\in(\Bar{y}\pm B) \text{ } \Rightarrow \text{ } \mu\in(197.1\pm 39.8)\]
+We are $95\%$ confident that the population mean is between $157.3\$$ and $236.9\$$; meaning, that the average account receivable for the firm does not exceed due to it not lying within the intervals. 
+\vspace{10mm}
+\\(4.48)
+\[n=100, \text{ } \hat{p}=\frac{65}{100}, \text{ } \hat{q}=\frac{35}{100}\]
+(a) true proportion. We already have $\hat{p}$, now we need to find the bound $B$:
+\[B=2\sqrt{\hat{V}(\hat{p})}=2\sqrt{\frac{\hat{p}\hat{q}}{n-1}(1-\frac{n}{N})}\]
+\[p\in(\hat{p}\pm B) \Rightarrow p\in(0.65\pm 2\sqrt{\frac{\hat{p}\hat{q}}{n-1}(1-\frac{n}{N})})\Rightarrow p\in(0.65\pm 2\sqrt{\frac{(0.65)(0.35)}{100-1}(1-\frac{100}{N})})\]
+Assume that $\frac{n}{N}\approx0:$
+\[p\in(0.65\pm 2\sqrt{\frac{(0.65)(0.35)}{100-1}(1)}) \Rightarrow \text{ } p\in(0.65\pm 0.096)\]
+Therefore, the true proportion lies within $0.55$ and $0.746$ with a $95\%$ confidence interval.
+\vspace{5mm}
+\\(b) The women who wear lipstick.
+\vspace{5mm}
+\\(c)No, since they took at the women at the mall, they took all the convenient women at the mall as data. Thus, it is called a convenience sampling and not a simple random sampling.
+\vspace{5mm}
+\\(d)Not every women in the mall will approach the booth to state their favourite lipstick (missing out on data); thus, missing out on women who may wear lipstick and no approach the booth.
+
+
+
+\end{document}

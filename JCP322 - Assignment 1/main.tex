@@ -1,0 +1,375 @@
+\documentclass[11pt]{article}
+\usepackage[english]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage[dvipsnames]{xcolor}
+\usepackage[most]{tcolorbox}
+\usepackage[linguistics]{forest}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{amsfonts}
+\usepackage{amstext}
+\usepackage{amsmath,amssymb,amsthm, thmtools}
+\usepackage{tikz,lipsum,lmodern}
+\usepackage{array}
+\usepackage{lastpage}
+\usepackage{multicol}
+\usepackage{tikz-cd}
+\usepackage{array}
+\usepackage{dirtytalk}
+\usepackage{qtree}
+\usepackage{framed}
+\usepackage[hyperfootnotes=false]{hyperref}
+\hypersetup{
+colorlinks=true,
+linkcolor={mypink}}
+
+\definecolor{mypink}{RGB}{255, 50, 147}
+\definecolor{pink}{RGB}{255, 0, 147}
+
+\setlength{\textheight}{9.3in}
+\setlength{\topmargin}{-0.7in}
+\setlength{\textwidth}{6.5in}
+\setlength{\oddsidemargin}{0in}
+\setlength{\evensidemargin}{0in}
+\setlength{\parskip}{6pt}
+\setlength{\parindent}{0pt}
+
+\def\mbb{\mathbb}
+\def\mb{\mathbf}
+\def\mc{\mathcal}
+\def\R{\mbb{R}}
+\def\Q{\mbb{Q}}
+\def\Z{\mbb{Z}}
+\def\C{\mbb{C}}
+\def\N{\mbb{N}}
+\def\F{\mbb{F}}
+\def\T{\mc{T}}
+\def\A{\mc{A}}
+\def\E{\mbb{E}}
+\def\P{\mbb{P}}
+\def\X{\mathfrak{X}}
+\def\e{\epsilon}
+\def\d{\delta}
+\def\h{\hbar}
+\def\w{\omega}
+\def\l{\ell}
+\def\Ra{\Rightarrow}
+\def\La{\Leftarrow}
+\def\and{\quad \text{and} \quad}
+\def\la{\langle}
+\def\ra{\rangle}
+
+\def\nemt{\neq \emptyset}
+\newcommand{\dif}[2]{\frac{d#1}{d#2}}
+\newcommand{\pardif}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\twopardif}[2]{\frac{\partial ^2 #1}{\partial #2^2}}
+\newcommand{\Matrix}[1]{\begin{pmatrix} #1 \end{pmatrix}}
+\newcommand{\Lint}[1]{\ointctrclockwise_{#1}}
+\newcommand{\Ang}[1]{\left\langle #1 \right\rangle}
+\newcommand{\Inn}{\langle \cdot , \cdot \rangle}
+\newcommand{\norm}[1]{\left\| #1 \right\|}
+\newcommand{\blanknorm}[1]{\| \cdot \|_{#1}}
+\newcommand{\epfrac}[1]{\frac{\e}{#1}}
+\newcommand{\ext}[1]{\tilde{\mb #1}}
+
+\renewcommand{\epsilon}{\varepsilon}
+\renewcommand{\bar}{\overline} 
+\renewcommand{\hat}{\widehat}
+
+
+\declaretheoremstyle[
+  headfont=\color{mypink}\normalfont\bfseries,
+%  bodyfont=\color{red}\normalfont\itshape,
+]{pink}
+
+\declaretheoremstyle[
+  headfont=\color{black}\normalfont\bfseries,
+%  bodyfont=\color{red}\normalfont\itshape,
+]{boxedsolution}
+
+\theoremstyle{pink}
+\newtheorem{definition}{Definition}[section]
+
+\theoremstyle{boxedsolution}
+\newtheorem*{bproof}{Proof}
+\newtheorem*{solution}{Solution}
+  
+\theoremstyle{definition}
+\newtheorem{lemma}[definition]{Lemma}
+\newtheorem{theorem}[definition]{Theorem}
+\newtheorem{corollary}[definition]{Corollary}
+\newtheorem{proposition}[definition]{Proposition}
+\newtheorem{example}[definition]{Example}
+\newtheorem{problem}{Problem}
+\newtheorem{question}{Question}
+\newtheorem{Goal}{Goal}
+
+\newtheoremstyle{claim}
+{\topsep}{\topsep}{}{}%              
+{\bfseries}{:}%             
+{5pt plus 1pt minus 1pt}{}%             
+\theoremstyle{claim}
+% change this to \newtheorem*{claim}{Claim} to leave things un-numbered
+\newtheorem{claim}{Claim}
+
+
+
+\newenvironment{boxsol}
+    {\begin{framed}
+    \begin{solution}
+    }
+    {
+    \end{solution}    
+    \end{framed}}
+    
+\newenvironment{boxproof}
+    {\begin{framed}
+    \begin{bproof}
+    }
+    {
+    \end{bproof}    
+    \end{framed}}
+
+\pagestyle{fancy}
+\fancyhf{}
+\lhead{JCP322 - Assignment 1}
+\rhead{Maxim Piatine (1005303100)}
+\cfoot{Page \thepage \ of \pageref{LastPage}}
+
+\begin{document}
+ \section*{Question 1}
+(a) on a fair 3 sided each side has a $1/3$ chance of landing on it. Let $f(n)$ be a function of time, where each roll is represented by $n$ with a possible solution of $\{1,2,3\}$. In Bosons, a roll is legal only if the new number $f(n+1)$ is larger than or equal to the preceding number $f(n)$ where $n\in\N$. Since, we are rolling twice, there is a total of $3^2$ combinations possible in a Distinguishable game:
+\[\{1,1\},\{1,2\},\{1,3\},\{2,1\},\{2,2\},\{2,3\},\{3,1\},\{3,2\},\{3,3\}\]
+However, since we are playing in Bosons, the first roll needs to be less than or equal to the 2nd roll $f(1)\leq f(2)$. taking the first combination $\{1,1\}$ satisfies the inequality of Bosons $f(1)\leq f(2) \Rightarrow 1\leq 1$. Considering the first value as the first roll and the second number as the second roll, eliminates three options: $\{2,1\},\{3,1\},\{3,2\}$ since $f(1)>f(2)$ in these cases. Thus, the remaining options are:
+\[\{1,1\},\{1,2\},\{1,3\},\{2,2\},\{2,3\},\{3,3\}\]
+Among those that give a probability of four $\rho(4)$ are $\{1,3\},\{2,2\}$. Therefore, out of the remaining six legal combinations, there is a total of two combinations that will give a four. Giving a $2/6$ probability or $1/3$.
+\vspace{3mm}
+\\The next game, we are playing Fermion. The difference between the Bosons, is that $f(n)$ is strictly smaller than $f(n+1)$. Thus, any option from the Distinguishable game where $f(1)\geq f(2)$ gets eliminated from the game. Giving a total combinations of:
+\[\{1,2\},\{1,3\},\{2,3\}\]
+Out of the remaining three options, there is only one option that gives a combination of 4 $\{1,3\}$. Giving a probability of $1/3$ similarly to the Bosons game.
+\vspace{5mm}
+\\(b) We are now playing with three "three-sided" dice in Fermions. In a Distinguishable game, there would be a $3^3$ combinations. However, in Fermions we have to account for the condition of $f(n)<f(n+1)$ where $n\in\N$. Since there are only three sides on the die, there could only be one combination that satisfies the Fermion game. All the other combinations would either be equal to or less. \[f(1)<f(2)<f(3) \Rightarrow 1<2<3\]
+Coincidentally, that is the only combination that will gives a total of 6. Therefore, in a "legal" Fermion game, the probability of obtaining 6 $\rho(6)$ is $100\%$
+\vspace{5mm}
+\\(c)As established in the book, when rolling three dice in Bosons, there are ten possible combinations. Let $M$ be the number of dice, $N$ be the sides on the dice:
+\[\Matrix{N+M-1 \\ M}=\Matrix{3+3-1 \\ 3}=\Matrix{5 \\ 3}=10\]
+As explained in (b), in a Distinguishable game, there would be $3^3$ combinations, due to the number of dice and all the possible values on the dice (3 possible values $\{1,2,3\}$). Giving a total of 27 possible combinations.
+\\We know there is a total of three legal triples in Bosons and Distinguishable being:
+\[\{1,1,1\},\{2,2,2\},\{3,3,3\}\]
+Therefore, the probability of getting a triple in Bosons $\rho_{\text{Bosons}}(\text{triple})$ is $3/10$ and the probability of getting a triple in Distinguishable $\rho_{\text{Disting}}(\text{triple})$ is $3/27$. Making the probability of getting triples enhanced by $27/10$ or $2.7$ times in a three-roll Bosons.
+  \vspace{5mm}
+  \\To find the distinguishable ratio on $M$ rolls with no restrictions with $N^M$ possibilities is:
+  \[\frac{M}{N^M}\]
+  For a Bosons game, they give all the possibilities with restrictions to be $(N+M-1)!/(M!(N-1)!)$, thus giving a ratio of:
+  \[\frac{M}{\frac{(N+M-1)!}{M!(N-1)!}}\]
+
+ 
+
+\newpage
+ \section*{Question 2}
+ (a)
+ \\\begin{center}
+    \begin{tikzpicture}
+      \draw[->] (0, 0) -- (10, 0) node[right] {$x$};
+      \draw[->] (0, 0) -- (0, 3) node[above] {$\rho(x)$};
+      \draw[-] (9.9, 0) -- (9.9,-0.1) node[below] {$1$};
+      \draw[-] (7.5, 0) -- (7.5,-0.1) node[below] {\tiny$0.75$};
+      \draw[-] (7, 0) -- (7,-0.1) node[below] {\tiny$0.7$};
+      \draw[-] (0, 0) -- (0,0) node[left] {$0$};
+      \draw[-] (0, 1.2) -- (0, 1.2) node[left] {$1$};
+      \draw[ domain=0:10, smooth, variable=\x, blue] plot ({\x}, {1.2});
+      \draw[ domain=0:1.2, smooth, variable=\y, red]  plot ({7.5}, {\y});
+      \draw[ domain=0:1.2, smooth, variable=\y, red]  plot ({7}, {\y});
+    \end{tikzpicture}
+ \end{center}
+ \[\rho_{\text{uniform}}(x)=\begin{cases}
+    1 & x\in[0,1)\\
+    0 & \text{otherwise}
+ \end{cases}\]
+ \[\P(a \leq X \leq b)=\int^{b}_{a} \rho(x) dx\]
+ \[\P(0.7 \leq X \leq 0.75)=\int^{0.75}_{0.7} 1 dx=[0.75-0.7]=0.05\]
+ The probability for a random number to lie within 0.7 and 0.75 is $5\%$ or $0.05$.
+ \vspace{5mm}
+ \\
+ \begin{center}
+     \begin{tikzpicture}
+            \draw[->] (0, 0) -- (10, 0) node[right] {$t$};
+            \draw[->] (0, 0) -- (0, 3) node[above] {$\rho(t)$};
+            \draw[-] (1.7, 0.45) -- (1.7,0) node[below] {$2\tau$};
+            \draw[line width=1.2pt, blue, domain=0:10, smooth]  plot(\x, {e^(-1/2*\x)});
+        \end{tikzpicture}
+ \end{center}
+ \[\rho_{\text{exponential}}(t)=\frac{e^{-t/\tau}}{\tau}, t\geq0\]
+ \[\P(X>2\tau)=\int^\infty_{2\tau}\rho(t)dt=1-\P(X\leq 2\tau)=1-\int^{2\tau}_0\rho(t)dt\]
+ \[=1-\int^{2\tau}_0\frac{e^{-t/\tau}}{\tau}dt=1-\frac{1}{\tau}\int^{2\tau}_0e^{-t/\tau}dt=1-\frac{1}{\tau}\left[-\tau e^{-t/\tau}\right]^{2\tau}_0=1-\left[-e^{-t/\tau}\right]^{2\tau}_0=1-\left[-e^{-2\tau/\tau}+e^0\right]\]
+ \[=1-0.86466=0.135335\]
+ Therefore, the probability that a radioactive decay of a nucleus will be more than $2\tau$ is $0.14$ or $14\%$.
+ \newpage
+  \begin{center}
+     \begin{tikzpicture}
+            \draw[->] (-5, 0) -- (5, 0) node[right] {$v$};
+            \draw[->] (0, 0) -- (0, 3) node[above] {$\rho(v)$};
+            \draw[-] (0, 0) -- (0,0) node[below] {$0$};
+            \draw[-] (1.7, 0.5) -- (1.7,0) node[below] {$2\sigma$};
+            \draw[line width=1.2pt, blue, domain=-5:5, smooth]  plot(\x, {2*e^(-0.5*\x*\x)});
+        \end{tikzpicture}
+ \end{center}
+ \[\rho_{\text{gaussian}}(v)=\frac{e^{-v^2/2\sigma^2}}{\sqrt{2\pi}\sigma}\]
+ \vspace{3mm}
+ \[\P(X>2\sigma)=\int^\infty_{2\sigma}\rho(v)dv=\int^{\infty}_{2\sigma}\frac{e^{-v^2/2\sigma^2}}{\sqrt{2\pi}\sigma}dv=\frac{1}{\sigma}\int^{\infty}_{2\sigma}\frac{e^{-v^2/2\sigma^2}}{\sqrt{2\pi}}dv\]
+ Let $x=v/\sigma$, $dx/dv=1/\sigma$, $\sigma dx= dv$. The upper bound $x_{UB}=\infty/\sigma=\infty$; The lower bound $x_{LB}=2\sigma/\sigma=2$:
+ \[=\frac{1}{\sigma}\int^{\infty}_{2}\frac{e^{-x^2}}{\sqrt{2\pi}}\sigma dx= \int^{\infty}_{2}\frac{e^{-x^2}}{\sqrt{2\pi}} dx=\frac{(1-\text{erf}(\sqrt{2}))}{2} \approx 0.023\]
+ Thus, the probability that your score on an exam will be greater than $2\sigma$ above the mean is $2.3\%$ or $0.023$.
+ \vspace{5mm}
+ \\(b)
+ %Uniform stuff
+ (i)Show $\int^\infty_{-\infty}\rho_{\text{uniform}}(x)dx=1$:
+ \begin{proof}
+ \[\int^\infty_{-\infty}\rho_{\text{uniform}}(x)dx=\int^0_{-\infty}0dx+\int^1_0 (1)dx+\int^\infty_{1}0dx=\int^1_0 (1)dx=x|^1_0=1\]
+ \[\int^\infty_{-\infty}\rho_{\text{uniform}}(x)=1\]
+ Therefore, L.H.S = R.H.S, the uniform distribution is normalized.
+ \end{proof}
+The Expected Value of a uniform distribution $X \sim Uniform(0,1)$:
+\[\E[X]=\int^\infty_{-\infty}x\rho(x)dx=\int^1_0x(1)dx=\left[\frac{x^2}{2}\right]^1_0=\frac{1}{2}\]
+We can find the second moment of the Expected Value:
+\[\E[X^2]=\int^\infty_{-\infty}x^2\rho(x)dx=\int^1_0x^2(1)dx=\left[\frac{x^3}{3}\right]^1_0=\frac{1}{3}\]
+\vspace{2mm}
+\\To find the standard deviation, we know the fact $\sigma^2=\mathbb{V}ar(X)=\E[X^2]-\E[X]^2$. 
+\[\sigma^2=\E[X^2]-\E[X]^2=\frac{1}{3}-\frac{1}{2^2}=\frac{1}{12}\]
+\[\sigma = \frac{1}{\sqrt{12}}\]
+
+\newpage
+%Exponential
+(ii) Show $\int^\infty_{-\infty}\rho_{\text{exponential}}(t)dt=1$:
+ \begin{proof}
+ \[\int^\infty_{-\infty}\rho_{\text{exponential}}(t)dt=\int^\infty_0\frac{e^{-t/\tau}}{\tau}dt=\frac{1}{\tau}\int^\infty_0e^{-t/\tau}dt=\frac{1}{\tau}\left[-\tau e^{-t/\tau}\right]^\infty_0=-\left[e^{-\infty}-e^0\right]=1\]
+ \[\int^\infty_{-\infty}\rho_{\text{exponential}}(t)=1\]
+ Therefore, L.H.S = R.H.S, the exponential distribution is normalized.
+ \end{proof}
+ \vspace{4mm}
+The Expected Value of an exponential distribution $T \sim Exponential\left(\frac{1}{\tau}\right)$:
+\[\E[T]=\int^\infty_{-\infty}t\rho(t)dt=\int^\infty_0t\left(\frac{e^{-t/\tau}}{\tau}\right)dt=\int^\infty_0\frac{t}{\tau}e^{-t/\tau}\]
+\vspace{3mm}
+\\Let $u=\frac{-t}{\tau} \Rightarrow dt=-\tau du$:
+\[=\int-ue^{u}(-\tau du)=\tau\int ue^udu=\tau\left[ue^u-\int e^u du\right]=\tau\left[ue^u-e^u\right]=\tau\left[\frac{-t}{\tau}e^{-t/\tau}-e^{-t/\tau}\right]^\infty_0\]
+\[=\tau\left[0-0+0+1\right]=\tau\]
+\vspace{3mm}
+\\We can find the second moment of the Expected Value:
+\[\E[T^2]=\int^\infty_{0}t^2\rho(t)dt=\int^\infty_0t^2\left(\frac{e^{-t/\tau}}{\tau}\right)dt\]
+\vspace{3mm}
+\\Let $u=\frac{-t}{\tau} \Rightarrow dt=-\tau du$:
+\vspace{3mm}
+\[=-\tau^2\int u^2e^udu=-\tau^2\left(u^2e^u-2\int ue^udu\right)=-\tau^2\left(u^2e^u-2\left[ue^u-\int e^u du\right]\right)\]
+\vspace{3mm}
+\[=-\tau^2\left(u^2e^u-2ue^u+2e^u\right)=-\tau^2\left[\left(\frac{-t}{\tau}\right)^2e^{-t/\tau}-2\left(\frac{-t}{\tau}\right)e^{-t/\tau}+2e^{-t/\tau}\right]^\infty_0\]
+\vspace{3mm}
+\[=\left[-t^2e^{-t/\tau}-2\tau te^{-t/\tau}-2\tau^2e^{-t/\tau}\right]^\infty_0= -0-0-0+0+0+2\tau^2=2\tau^2\]
+\vspace{5mm}
+\\Finding standard deviation:
+\[\sigma^2=\E[T^2]-\E[T]^2=2\tau^2-\tau^2=\tau^2\]
+\[\sigma = \tau\]
+
+
+\newpage
+%GAUSSIAN
+ (iii)Show $\int^\infty_{-\infty}\rho_{\text{gaussian}}(v)dv=1$:
+ \begin{proof}
+ \[\int^\infty_{-\infty}\rho_{\text{gaussian}}(v)dv=\int^\infty_{-\infty}\frac{e^{-v^2/2\sigma^2}}{\sqrt{2\pi}\sigma}dv\]
+ \begin{claim}
+ $\rho_{\text{gaussian}}(v)$ is even. $\rho(-v)=\rho(v)$:
+ \vspace{4mm}
+ \[\rho_{\text{gaussian}}(-v)=\frac{e^{-(-v)^2/2\sigma^2}}{\sqrt{2\pi}\sigma}=\frac{e^{-v^2/2\sigma^2}}{\sqrt{2\pi}\sigma}=\rho_{\text{gaussian}}(v)\]
+ \vspace{3mm}
+ \\Let $u=v/\sqrt{2}\sigma \Rightarrow du/dv=1/\sqrt{2}\sigma \Rightarrow \sqrt{2}\sigma du = dv$. The upper bound $u_{UB}=\infty/\sqrt{2}\sigma=\infty$; The lower bound $u_{LB}=0/\sqrt{2}\sigma=0:$
+ \vspace{4mm}
+ \[=\frac{2}{\sqrt{2\pi}\sigma}\int^\infty_0e^{-v^2/2\sigma^2}dv=\frac{2}{\sqrt{2\pi}\sigma}\int^\infty_0e^{-u^2}\sqrt{2}\sigma du = \frac{2}{\sqrt{\pi}}\int^\infty_0e^{-u^2}du=\text{erf}(u)|^\infty_0\]
+ \vspace{3mm}
+ \[=\text{erf}(\infty)-\text{erf}(0)=1\]
+ Therefore, L.H.S = R.H.S, the Gaussian distribution is normalized.
+ \end{claim}
+ \end{proof}
+ The Expected Value of a Gaussian distribution $V \sim N(0,\sigma^2)$:
+ \vspace{4mm}
+ \[\E[V]=\int^\infty_{-\infty}v\rho(v)dv=\int^\infty_{-\infty}v\left(\frac{e^{-v^2/2\sigma^2}}{\sqrt{2\pi}\sigma}\right)dv\]
+ \begin{claim}
+ $v\rho(v)$ is odd. From Claim 1, we know $\rho(v)$ was even. $f(v)=v$ is odd, we also know that an odd function times and even function will give an odd function. Therefore, $v\rho(v)$ is an odd function.
+ \vspace{3mm}
+ \\Taking an integral of an odd function from a symmetric bound $(-\infty,\infty)$ will be zero. Therefore:
+ \[=\int^\infty_{-\infty}v\left(\frac{e^{-v^2/2\sigma^2}}{\sqrt{2\pi}\sigma}\right)dv=0\]
+ \end{claim}
+ We can find the second moment of the Expected Value:
+ \vspace{4mm}
+ \[\E[V^2]=\int^\infty_{-\infty}v^2\left(\frac{e^{-v^2/2\sigma^2}}{\sqrt{2\pi}\sigma}\right)dv=\frac{1}{\sqrt{2\pi}\sigma}\int^\infty_{-\infty}v^2e^{-v^2/2\sigma^2}dv\]
+ \newpage
+ Let $u=v/\sigma$ and replace the derivative $du/dv=1/\sigma \Rightarrow dv = \sigma du$. Upper bounds and lower bounds remain the same after plugging it into the substitution:
+ \vspace{4mm}
+ \[=\frac{1}{\sqrt{2\pi}\sigma}\int^\infty_{-\infty}(\sigma u)^2e^{-u^2/2}(\sigma du)=\frac{\sigma^2}{\sqrt{2\pi}}\int^\infty_{-\infty}u^2e^{-u^2/2}du=\sigma^2\int^\infty_{-\infty}\frac{u^2}{\sqrt{2\pi}}e^{-u^2/2}du=\sigma^2(1)=\sigma^2\]
+ \vspace{4mm}
+ Finding standard deviation:
+ \[\sigma^2=\E[V^2]-\E[V]^2=\sigma^2-0 \Rightarrow \sigma=\sigma\]
+ 
+ \newpage
+ \section*{Question 3}
+ (a) To verify that each hour the average number of cars is 12, we need to integrate and have $t$ in minutes. We have $60$ minutes in an hour and the distribution is $dt/\tau$ where $\tau = 5$:
+ \[\P[\text{12 cars pass by each hour}]=\int^{60}_0 \frac{dt}{\tau}=\int^{60}_0 \frac{dt}{5}=\frac{t}{5}\bigg|^{60}_0=\frac{60}{5}=12\]
+ (b) (i) Given the fact that each bus passes "exactly" 5 minutes after the previous one. At what ever time interval you place your observer in the 10 minutes he will see 2 busses guaranteed. Therefore, the probability of seeing 2 busses is $100\%$, otherwise it is 0.
+ \[\P[n \text{ busses in 10 minutes}]=
+ \begin{cases}
+ 1, \text{ if } n=2 \\
+ 0, \text{ otherwise}
+ \end{cases}
+ \]
+(ii) To determine the probability that $n$ cars pass the observer in the same time interval can be established with the binomial distribution. We know that $\frac{dt}{\tau}$ is the probability that a car passes and $1-\frac{dt}{\tau}$, the binomial can be set up like this:
+\[\rho(n)=\Matrix{k\\n}\left(\frac{dt}{\tau}\right)^n\left(1-\frac{dt}{\tau}\right)^{k-n}=\frac{k!}{(k-n)!n!}\left(\frac{dt}{\tau}\right)^n\left(1-\frac{dt}{\tau}\right)^{k-n}\]
+If we take the limit of k to infinity, apply Stirling's approximation, following the lecture notes from class, we have:
+\[\lim_{k \to \infty}\frac{k!}{(k-n)!n!}=\frac{k^n}{n!}\]
+\vspace{5mm}
+\[\lim_{k \to \infty}\left(1-\frac{dt}{\tau}\right)^{k-n}=
+\lim_{k \to \infty}\left(\frac{\left(1-\frac{dt}{\tau}\right)^k}{\left(1-\frac{dt}{\tau}\right)^n}\right)=\lim_{k \to \infty}\left(\frac{\left(1-\frac{kdt}{\tau}\frac{1}{k}\right)^k}{\left(1-\frac{kdt}{\tau}\frac{1}{k}\right)^n}\right)=\frac{e^{-k\frac{dt}{\tau}}}{1^{(n)}}=e^{-k\frac{dt}{\tau}}\]
+\vspace{5mm}
+\\Let $a=k\frac{dt}{\tau}$:
+\[\lim_{k \to \infty} \rho(n) = \P_{\text{car}}(n)=\frac{k^n}{n!}\left(\frac{dt}{\tau}\right)^n e^{-k\frac{dt}{\tau}}=
+\frac{a^n}{n!}e^{-a}\]
+
+\newpage
+ \section*{Question 4}
+ (a) 
+ \[\la R \ra=\la\sum^{10}_{i=1} x_i\ra = \sum^{10}_{i=1}\la x_i\ra = 10\la x_i\ra\]
+ \vspace{3mm}
+ \[\la x_i\ra=\frac{7}{10}(10)+\frac{3}{10}(0)=7 \Rightarrow 10\la x_i\ra = 70\]
+ \vspace{2mm}
+ \[\la R\ra=70\]
+ \vspace{5mm}
+ \[\la x_i^2\ra=\frac{7}{10}(10)^2+\frac{3}{10}(0)^2=70\]
+ \vspace{2mm}
+ \[\la x_i\ra=7\]
+  Since the step size is 10 we account it into the variance calculation:
+  \[\sigma^2 = \mathbb{V}(X) = N*\left(\la x_i^2\ra - \la x_i\ra^2\right) = 10(70 - 7^2) = 210 \Rightarrow \sigma = 14.49\]
+  (b)
+  \[\text{Ratio}= \frac{\sigma_{obs}}{\sigma_{random}}=\frac{15}{14.49}=1.035\]
+  The physical interpretation is that the observed standard deviation is higher by a factor of 1.035 which isn't much significant; however, we can state that the observed and theoretical values differ due to the randomness of the random walk.
+
+ \newpage
+ \section*{Question 5}
+ With the given information, we have $R = 5 \times 10^{8}m$, $c = 3 \times 10^8 m/s$, and $\l = 5 \times 10^{-5}m$. We need to find how many steps $N$ will the photon take of length $\l$:
+ \[\sqrt{\langle R^2 \rangle} = \l \sqrt{N} \Rightarrow \langle R^2 \rangle = \l^2 N \Rightarrow N = \langle R^2 \rangle/\l^2\]
+ Since $R$ is a constant and not a random variable, we know that the expected value of a constant is the constant in return $\langle R^2 \rangle = R^2$:
+ \[N=\frac{R^2}{\l^2}=\left(\frac{ 5 \times 10^{8}m}{5 \times 10^{-5}m}\right)^2=(10^{13})^2=10^{26} \text{ steps}\]
+ To get the time, we need to take the total position/displacement and divide by the velocity of the speed of light to get the time in seconds. 
+ \[\Delta x = N\l = 10^{26}(5\times 10^{-5} m)= 5\times 10^{21} m\]
+ \[\Delta T = \Delta x/c = \frac{5\times 10^{21} m}{3 \times 10^8 m/s}=\frac{5}{3}\times 10^{13}s\]
+ The question is asking the $\Delta t$ to be in years; thus, take $\Delta T$ and multiply by the constant $\frac{1 \text{ year}}{3\times10^7 s}$:
+ \[\Delta t = \Delta T \left(\frac{1 \text{ year}}{3\times10^7 s}\right) = \left(\frac{5}{3}\times 10^{13}s\right) \left(\frac{1 \text{ year}}{3\times10^7 s}\right)=\frac{5}{9} \times 10^6 \text{ years}\]
+ 
+ \newpage
+ \section*{Question 6}
+to obtain the full length of $\l$ we need to use the $3.4 A^\circ$, where $A^\circ$ is the angstrom unit equal to $10^{-10}m$. Since it gives a singular base pair, the assumption is that we need to find the length for $100000$ base pairs.
+\[\l=100000 \times 3.4\time10^{-10}m=3.4\times10^{-5}m\]
+Since we are looking for the RMS for the gene from the DNA, we have $50nm$ of length $L$ to which we can find the number of steps $N$ of persistence lengths:
+\[N=\l/L=\frac{3.4\times10^{-5}m}{50\times 10^{-9}m}=680 \text{ steps}\]
+Now to find the RMS distance we know $\sqrt{\la R^2\ra}$:
+\[\sqrt{\la R^2\ra}=L\sqrt{N}=50\times10^{-9}\sqrt{680}m=1.3\times10^{-6}m\]
+
+
+\end{document}

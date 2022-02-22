@@ -1,0 +1,140 @@
+\documentclass[11pt]{article} 
+%\usepackage{amsbsy} % for \boldsymbol and \pmb 
+%\usepackage{graphicx} % To include pdf files!
+\usepackage{amsmath}
+\usepackage{amsbsy}
+\usepackage{amsfonts}
+\usepackage{enumerate}
+\usepackage[colorlinks=true, pdfstartview=FitV, linkcolor=blue, citecolor=blue, urlcolor=blue]{hyperref} % For links
+\usepackage{fullpage}
+\pagestyle{empty}
+\usepackage{pgf,pgfplots,tikz}
+\usepackage{amsmath,amssymb,amsthm}
+\usepackage{tikz}
+\newcommand{\overrightharp}[1]{\hat{#1}}
+\DeclareMathOperator{\proj}{proj}
+\DeclareMathOperator{\years}{years}
+\DeclareMathOperator{\cm}{cm}
+\newcommand{\vct}{\mathbf}
+\newcommand{\vctproj}[2][]{\proj_{{#1}}\vct{#2}}
+\newtheorem{theorem}{Theorem}
+\DeclareMathOperator{\m}{m}
+\DeclareMathOperator{\kg}{kg}
+\DeclareMathOperator{\N}{N}
+\DeclareMathOperator{\Or}{or}
+\DeclareMathOperator{\J}{J}
+\DeclareMathOperator{\s}{s}
+\DeclareMathOperator{\g}{g}
+\DeclareMathOperator{\W}{W}
+\DeclareMathOperator{\Heatoms}{He\hspace{1mm} atoms}
+\DeclareMathOperator{\MeV}{MeV}
+\DeclareMathOperator{\tr}{tr}
+\DeclareMathOperator*{\E}{\mathbb{E}}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\usepackage{graphicx}
+\newcommand{\abs}[1]{\lvert#1\rvert}
+\DeclareMathOperator{\diverge}{div\,}
+\DeclareMathOperator{\curl}{curl\,}
+
+\newtheoremstyle{claim}
+{\topsep}{\topsep}{}{}%              
+{\bfseries}{:}%             
+{5pt plus 1pt minus 1pt}{}%             
+\theoremstyle{claim}
+% change this to \newtheorem*{claim}{Claim} to leave things un-numbered
+\newtheorem*{claim}{Claim}
+
+
+\title{\textbf{STA304 Assignment 2}
+\author{Maxim Piatine\\1005303100}}
+\date{}
+\DeclareMathOperator{\lineint}{\int \mathbf{v}\cdot d\mathbf{l}}
+\DeclareMathOperator{\surfint}{\int \mathbf{v}\cdot d\mathbf{a}}
+\begin{document}
+\maketitle
+\section*{Question 1}
+\section*{Question 1}
+\begin{proof}
+\[L(x,\lambda)=f(x)-\lambda g(x)=V(\Bar{y}_{st})-\lambda g(x)\]
+the constraint $n=n_1+...+n_L$
+\[n-\sum^L_{i=1}=0 \Rightarrow g(x)=(n-\sum^L_{i=1}n_i)\]
+\[\ell(n_1,...,n_L;\lambda)=\left(\frac{1}{N^2}\sum^L_{i=1}N_i^2\frac{\sigma^2_i}{n_i}\left(\frac{N_i-n_i}{N_i-1}\right)\right)-\lambda \left(n-\sum^L_{i=1}n_i\right)\]
+\[=\left(\frac{1}{N^2}\sum^L_{i=1}N_i^2\frac{\sigma^2_i}{N_i-1}\left(\frac{N_i}{n_i}-1\right)\right)-\lambda n+\lambda\sum^L_{i=1}n_i)\]
+Let $N_i-1\approx N_i$
+\[\frac{\partial\ell}{\partial n_i}=-\frac{1}{N^2}\left[
+N_i^2\frac{\sigma^2_i}{N_i-1}\left(\frac{N_i}{n_i^2}\right)
+\right] + \lambda=0\]
+\[\Rightarrow \frac{1}{N^2}\left[
+N_i^2\frac{\sigma^2_i}{n_i^2}
+\right] =\lambda \Rightarrow n_i=\sqrt{\frac{N_i^2\sigma^2_i}{\lambda N^2}}\]
+\[a_i=\frac{n_i}{n}=\sqrt{\frac{N_i^2\sigma^2_i}{\lambda N^2}}\frac{1}{\sum^L_{j=1}n_j}=\frac{\sqrt{N_i^2\sigma^2_i}}{\sqrt{\lambda N^2}\sum^L_{j=1}\frac{\sqrt{N_j^2 \sigma^2_j}}{\sqrt{\lambda N^2}}}=\frac{\sqrt{N_i^2\sigma^2_i}}{\sqrt{\sum^L_{j=1}N_j^2\sigma^2_j}}\]
+
+\end{proof}
+
+
+\newpage
+\section*{Question 2}
+
+
+
+\newpage
+\section*{Question 3}
+\[N=1000, n=9, \mu_x=80\]
+(a)
+\[\Bar{y}=\frac{1}{n}\sum^n_{i=1}y_i=\frac{(2.8+3.1+...+3.5+3.2)}{9}=3.2111\]
+\[s^2=\frac{1}{n-1}\sum^n_{i=1}(y_i-\Bar{y})^2=\frac{1}{9-1}\left[(2.8-3.2111)^2+(3.1-3.2111)^2+...+(3.2-3.2111)^2\right]=0.08111\]
+\[B=2\sqrt{\frac{s^2}{n}\left(1-\frac{n}{N}\right)}=2\sqrt{\frac{0.08111}{9}\left(1-\frac{9}{1000}\right)}=0.189\]
+\[\Rightarrow \mu \in (\Bar{y}\pm B) \Rightarrow \mu \in (3.211\pm 0.189)\]
+We are $95\%$ confident that the population average for the CGPA is between 3.02 and 3.40
+\vspace{5mm}
+\\(b)
+\[r=\frac{\Bar{y}}{\Bar{x}}
+=\frac{\frac{1}{n}\sum^n_{i=1}y_i}{\frac{1}{n}\sum^n_{i=1}x_i}
+=\frac{\sum^n_{i=1}y_i}{\sum^n_{i=1}x_i}=\frac{(2.8+3.1+...+3.5+3.2)}{(74+84+...+88+77)}=0.03822\]
+\[\hat{\mu}_y=r\mu_x=(0.03822)(80)=3.058\]
+\[s^2_r=\frac{1}{n-1}\left(\sum^n_{i=1}y_i^2-2r\sum^n_{i=1}x_iy_i+r^2\sum^n_{i=1}x_i^2\right)=\frac{1}{9-1}\left(\sum^9_{i=1}y_i^2-2(0.03822)\sum^9_{i=1}x_iy_i+(0.03822)^2\sum^9_{i=1}x_i^2\right)\]
+\[=\frac{1}{8}\left((2.8^2+...+3.2^2)-0.07644((74)(2.8)+...+(77)(3.2))+(0.00146)(2.8^2+...+3.2^2)\right)=0.0574\]
+\[B=2\sqrt{\frac{S^2_r}{n}\left(1-\frac{n}{N}\right)}=2\sqrt{\frac{0.0574}{9}\left(1-\frac{9}{1000}\right)}=0.1589\]
+\[\Rightarrow \mu_y \in (\hat{\mu}_y\pm B) \Rightarrow \mu_y \in (3.06\pm 0.16)\]
+We are $95\%$ confident that the population cgpa for graduating students is between $2.9$ and $3.22$
+\vspace{5mm}
+\\(c)
+The ratio estimator (b) is a better estimation compared to (a) due to the correlation between $x$ and $y$. The correlation between $x$ and $y$ is $|\rho|>0.5$. With $R$, the correlation is $\rho=0.704$
+\newpage
+\section*{Question 4}
+(a)
+\[b=\frac{\sum^n_{i=1}x_iy_i-\frac{1}{n}\sum^n_{i=1}x_i\sum^n_{i=1}y_i}{\sum^n_{i=1}(x_i-\Bar{x})^2}=0.0233\]
+\[\hat{\mu}_{yL}=\Bar{y}+b(\mu_x-\Bar{x})=3.117\]
+\[\hat{V}(\hat{\mu}_{yL})=\left(1-\frac{n}{N}\right)\left(\frac{1}{n}\right)\frac{\sum^n_{i=1}(y_i-\Bar{y})^2-b^2\sum^n_{i=1}(x_i-\Bar{x})^2}{n-2}=0.00514\]
+\[B=2\sqrt{\hat{V}(\hat{\mu}_{yL})}=2\sqrt{0.00514}=0.1435\]
+\[\Rightarrow \mu_{yL}\in(\hat{\mu}_{yL}\pm B) \Rightarrow \mu_{yL}\in(3.12\pm 0.14)\]
+We are $95\%$ confident that the regression estimation is between $2.97$ and $3.26$.
+
+(b)
+\[\hat{\mu}_{yD}=\Bar{y}+\mu_x-\Bar{x}=-0.789\]
+\[\hat{V}(\hat{\mu}_{yD})=\left(1-\frac{n}{N}\right)\left(\frac{1}{n}\right)\frac{\sum^n_{i=1}((y_i-x_i)-(\Bar{y}-\Bar{x}))^2}{n-1}=7.78\]
+\[B=2\sqrt{\hat{V}(\hat{\mu}_{yD})}=2\sqrt{7.78}=5.58\]
+
+\[\Rightarrow \mu_{yD}\in(\hat{\mu}_{yD}\pm B) \Rightarrow \mu_{yD}\in(-0.789\pm 5.58)\]
+
+
+
+\newpage
+\section*{Question 5}
+\[n=20, N=452, B=3800\]
+\[D=\frac{B^2}{4N^2}=\frac{3800^2}{4(452)^2}=17.669\]
+\[r=\frac{\sum^n_{i=1}y_i}{\sum^n_{i=1}x_i}=\frac{(239+428+...+419+257)}{(208+400+...+388+244)}=1.07\]
+\[s^2_r=\frac{1}{n-1}\sum^n_{i=1}\left(y_i-rx_i\right)^2=\frac{1}{19}\left[(239-(1.07)(208))^2+...+(257-(1.07)(244))^2\right]=241.94\]
+\[n=\frac{Ns^2_r}{ND+s^2_r}=\frac{(452)(241.94)}{(452)(17.669)+241.94}=13.289\approx 14\]
+
+\section*{Question 6}
+\[n=65,N=650\]
+\[\hat{p}_{sy}=\frac{1}{65}\sum^{65}_{i=1}y_i=\frac{48}{65}\]
+\[\hat{q}_{sy}=1-\hat{p}_{sy}=\frac{17}{65}\]
+\[\hat{V}_d(\Bar{y}_{sy})=\left(1-\frac{n}{N}\right)\frac{\hat{p}_{sy}\hat{q}_{sy}}{(n-1)}=
+\left(1-\frac{65}{650}\right)\frac{(48)(17)}{(65-1)(65)(65)}=0.00272\]
+\[B=2\sqrt{\hat{V}_d(\Bar{y}_{sy})}=2\sqrt{0.00272}=0.10423\]
+\[\Rightarrow p\in(\hat{p}_{sy}\pm B) \Rightarrow p\in\left(0.738\pm0.104\right)\]
+Therefore we are $95\%$ confident that the proportion of members in favor of the proposed changes are within $0.634$ and $0.738$
+
+\end{document}

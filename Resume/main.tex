@@ -1,0 +1,187 @@
+\documentclass{article}
+\usepackage[cm]{fullpage}
+\usepackage{color}
+\usepackage{hyperref}
+
+\hypersetup{breaklinks=true,%
+pagecolor=white,%
+colorlinks=true,%
+linkcolor=cyan,%
+urlcolor=MyDarkBlue}
+
+\definecolor{MyDarkBlue}{rgb}{0,0.0,0.45}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Formatting parameters  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newlength{\tabin}
+\setlength{\tabin}{1em}
+\newlength{\secsep}
+\setlength{\secsep}{0.1cm}
+
+\setlength{\parindent}{0in}
+\setlength{\parskip}{0in}
+\setlength{\itemsep}{0in}
+\setlength{\topsep}{0in}
+\setlength{\tabcolsep}{0in}
+
+\definecolor{contactgray}{gray}{0.3}
+\pagestyle{empty}
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%  Template Definitions  %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\newcommand{\lineunder}{\vspace*{-8pt} \\ \hspace*{-6pt} \hrulefill \\ \vspace*{-15pt}}
+\newcommand{\name}[1]{\begin{center}\textsc{\Huge#1}\\\end{center}}
+\newcommand{\program}[1]{\begin{center}\textsc{#1}\end{center}}
+\newcommand{\contact}[1]{\begin{center}\color{contactgray}{\small#1}\end{center}}
+
+\newenvironment{tabbedsection}[1]{
+  \begin{list}{}{
+      \setlength{\itemsep}{0pt}
+      \setlength{\labelsep}{0pt}
+      \setlength{\labelwidth}{0pt}
+      \setlength{\leftmargin}{\tabin}
+      \setlength{\rightmargin}{\tabin}
+      \setlength{\listparindent}{0pt}
+      \setlength{\parsep}{0pt}
+      \setlength{\parskip}{0pt}
+      \setlength{\partopsep}{0pt}
+      \setlength{\topsep}{#1}
+    }
+  \item[]
+}{\end{list}}
+
+\newenvironment{nospacetabbing}{
+    \begin{tabbing}
+}{\end{tabbing}\vspace{-1.2em}}
+
+\newenvironment{resume_header}{}{\vspace{0pt}}
+
+
+\newenvironment{resume_section}[1]{
+  \filbreak
+  \vspace{2\secsep}
+  \textsc{\large#1}
+  \lineunder
+  \begin{tabbedsection}{\secsep}
+}{\end{tabbedsection}}
+
+\newenvironment{resume_subsection}[2][]{
+  \textbf{#2} \hfill {\footnotesize #1} \hspace{2em}
+  \begin{tabbedsection}{0.5\secsep}
+}{\end{tabbedsection}}
+
+\newenvironment{subitems}{
+  \renewcommand{\labelitemi}{-}
+  \begin{itemize}
+      \setlength{\labelsep}{1em}
+}{\end{itemize}}
+
+\newenvironment{resume_employer}[4]{
+  \vspace{\secsep}
+  \textbf{#1} \\ 
+  \indent {\small #2} \hfill {\footnotesize#3 (#4)}
+  \begin{tabbedsection}{0pt}
+  \begin{subitems}
+}{\end{subitems}\end{tabbedsection}}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+%     Start Document     %
+%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\begin{document}
+
+\begin{resume_header}
+\name{Maxim Piatine}
+\contact{max.piatine@hotmail.com \hspace{2cm} 438-830-8284 \hspace{2cm} \url{https://github.com/maxpiatine}}
+\end{resume_header}
+
+\begin{resume_section}{About Me}
+  \begin{nospacetabbing}
+
+  \textbf{Technical Skills}  \= C/C++, Python, Excel VBA, MATLAB, HTML, CSS, JavaScript, R, Git, \LaTeX\\*
+  \textbf{Personal Skills}  \> Analytical, Creative, Communicating, Collaborating, Organization, Public Speaking\\*
+  \textbf{Languages} \> Fluent in French and English; Conversational Proficiency in Russian\\*
+  \textbf{Art Technology} \> Adobe Photoshop, Adobe Premiere Pro, Illustrator\\*
+  \textbf{Interests} \> Athletics, Quantum Computing, Puzzles, Learning, Scripting, Chess, Languages\\*
+  \end{nospacetabbing}
+
+\end{resume_section}
+
+\begin{resume_section}{Education}
+  \begin{resume_subsection}[Toronto, ON (2018 -- 2022)]{University of Toronto}
+   \begin{subitems}
+      \item Honours Bachelor of Science (ER HBSC)
+    \item Physics and Applied Statistics Major, Mathematical Sciences Minor
+    \item Cumulative Average of $80\%$ (3.5/4.0) 
+    \begin{subitems}
+      \item In the last two years of university
+    \end{subitems}
+    \item Courses
+    \begin{subitems}
+    \item Statistical Methods of Machine Learning, Stochastic Processes, Statistical Mechanics,\\ Computation Modeling in Physics, Computer Science, Quantum Mechanics, Classical Electrodynamics
+    \end{subitems}
+   \end{subitems}
+  \end{resume_subsection}
+\end{resume_section}
+
+\begin{resume_section}{Work Experience}
+  \begin{resume_subsection}[Ottawa, ON(October 2017 -- April 2019)]{Middle Manager, Roast Cafe}
+  \begin{subitems}
+  \item Led the company's financial, budgeting, and accounting via Excel. Programmed automatic Pivot Tables with Macros that displays the company's weekly/monthly net income.
+  \item Front-end developed the website using HTML, CSS, and JavaScript to display the Menu, About Us, and different Social Medias linked to Roast Cafe.
+  \item Directed and marketed the company's social media account via Instagram and Facebook.
+  \end{subitems}
+      
+  \end{resume_subsection}
+\end{resume_section}
+
+\begin{resume_section}{Competitions and Personal Projects}
+  \begin{resume_subsection}[(December 2021)]{Statistical Methods of Machine Learning Kaggle Competition}
+  \begin{subitems}
+    \item  A $10\%$ R assignment assigned to every student in the class. The top 10 students get bonus marks.
+    \item Developed a program that recursively goes through $x$ number of variables and outputs the lowest root mean square error by Pruning trees. A Regression Trees method we learned in class.
+    \item Placed in $13^{\text{th}}$ place out of 136 students.
+    \end{subitems}
+ \end{resume_subsection}
+
+
+  \begin{resume_subsection}[(April 2021)]{Credit Card Validation}
+  \begin{subitems}
+    \item Wrote Luhn's Algorithm in C that allows to check the validity of someone's credit card.
+    \item Currently implementing an automated working service that allows clients to purchase online.
+    \end{subitems}
+  \end{resume_subsection}
+
+
+
+  \begin{resume_subsection}[(December 2020 - January 2021)]{Website Portfolio}
+    \begin{subitems}
+        \item Made a Portfolio website displaying my skills with HTML, CSS, and JavaScript.
+        \item Part of my Portfolio website had a Grade Calculator, that enabled me to calculate my grades in a class and measure my academic progress throughout the years. Used by $15+$ people.
+        \item Also, implemented a Readability feature that allowed me to post my advanced Physics lab reports and assignments. In return I'd get a readability score ranging from 0 to 100.
+    \end{subitems}
+  \end{resume_subsection}
+  
+  \begin{resume_subsection}[(May 2021)]{Filter}
+    \begin{subitems}
+    \item Developed a program that enables me to input a digital picture, and outputs a variety of amount of filtered pictures that I want using C.
+    \item The program reads through every pixel and mathematically changes the RGB depending on the filter wanted.
+    \end{subitems}
+  \end{resume_subsection}
+  
+    \begin{resume_subsection}[(February 2022)]{NFT Generator}
+        \begin{subitems}
+        \item Wrote an algorithm in Python to generates $10,000+$ different Non Fungible Tokens in under 5 minutes.
+        \item Using win32com client module to open Adobe Photoshop and access a variety of files to make layers visible and invisible simultaneously. Then outputting all the different varieties of NFTs depending on the filters and seed variation.
+        \item Currently, working on diminishing the run time complexity using vectorization.
+        \end{subitems}
+    \end{resume_subsection}
+
+
+\end{resume_section}
+\end{document}
